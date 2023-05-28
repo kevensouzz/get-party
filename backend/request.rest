@@ -3,7 +3,31 @@ Content-Type: application/json
 
 {
   "name": "algum serviço",
-  "description": "aluma descrição",
-  "price": 1400,
+  "description": "alguma descrição",
+  "price": 1000,
   "image": "image url"
+}
+
+###
+
+GET http://localhost:5000/api/services
+
+###
+
+GET http://localhost:5000/api/services/6472a871b60806b2e42a5d59
+
+###
+
+DELETE http://localhost:5000/api/services/6472a871b60806b2e42a5d59
+ 
+###
+
+PUT http://localhost:5000/api/services/6472a871b60806b2e42a5d59
+Content-Type: application/json
+
+{
+  "name": "nome",
+  "description": "descrição",
+  "price": 1000,
+  "image": "url da imagem"
 }
