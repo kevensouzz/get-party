@@ -12,7 +12,6 @@ const serviceController = {
       }
 
       const response = await Service.create(service)
-
       res.status(201).json({ response, success: "sucessfully created service!" })
 
     } catch (error) {
@@ -70,9 +69,9 @@ const serviceController = {
       image: req.body.image
     }
 
-    const updateService = await Service.findByIdAndUpdate(id, service)
+    const updatedService = await Service.findByIdAndUpdate(id, service)
 
-    if (!updateService) {
+    if (!updatedService) {
       res.status(404).json({ error: "service not found!" })
     }
 

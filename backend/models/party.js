@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")
 const { Schema } = mongoose
-const serviceSchema = require("./service")
 
-partySchema = new Schema({
+const partySchema = new Schema({
   title: {
     type: String,
     required: true
@@ -24,7 +23,12 @@ partySchema = new Schema({
     required: true
   },
   services: {
-    type: [ serviceSchema ]
+    type: [{
+      name: String,
+      description: String,
+      price: Number,
+      image: String
+    }]
   }
 },
   { timestamps: true }
@@ -32,4 +36,7 @@ partySchema = new Schema({
 
 const Party = mongoose.model("Party", partySchema)
 
-module.exports = Party
+module.exports = {
+  Party,
+  partySchema
+}
