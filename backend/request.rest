@@ -79,7 +79,7 @@ DELETE http://localhost:5000/api/parties/id
 
 ###
 
-PUT http://localhost:5000/api/parties/647552b4b2fc9d03ace00f2d
+PUT http://localhost:5000/api/parties/id
 Content-Type: application/json
 
 {
