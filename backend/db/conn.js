@@ -1,19 +1,23 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-// const dbHOST = process.env.DB_HOST;
-// const dbUSER = process.env.DB_USER;
-// const dbPASSWORD = process.env.DB_PASSWORD;
+const kevdbHOST = process.env.DB_HOST_KEV;
+const kevdbUSER = process.env.DB_USER_KEV;
+const kevdbPASSWORD = process.env.DB_PASSWORD_KEV;
+const kevdbURL = `mongodb+srv://${kevdbUSER}:${kevdbPASSWORD}@${kevdbHOST}/mern-app?retryWrites=true&w=majority`;
 
-// const dbURL = `mongodb+srv://${dbUSER}:${dbPASSWORD}@api-rest.dkqy8oh.mongodb.net/mern-app?retryWrites=true&w=majority`;
-// const dbURL = `mongodb+srv://kevensouzz:KEVENSS2006@api-rest.dkqy8oh.mongodb.net/`;
+// const leodbHOST = process.env.DB_HOST_LEO;
+// const leodbUSER = process.env.DB_USER_LEO;
+// const leodbPASSWORD = process.env.DB_PASSWORD_LEO;
+// const leodbURL = `mongodb+srv://${leodbUSER}:${leodbPASSWORD}@${leodbHOST}/mern-app?retryWrites=true&w=majority`;
 
 async function main() {
     try {
-
-
         mongoose.set('strictQuery', true)
-        await mongoose.connect('mongodb+srv://leonardomarcelosantana:t78u16o6BJ2ogqaa@test-restapi.mwbneca.mongodb.net/test-restApi?retryWrites=true&w=majority')
+
+        // await mongoose.connect(leodbURL)
+
+        await mongoose.connect(kevdbURL)
         console.log('conectou')
     } catch (e) {
         console.error(e)
