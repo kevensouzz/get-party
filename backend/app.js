@@ -7,10 +7,14 @@ app.use(express.json())
 
 // db connection
 const conn = require("./db/conn")
-conn()
 
 // routes
 const routes = require("./routes/router")
 app.use("/api", routes)
 
-app.listen(5000, () => console.log("server online!"))
+conn()
+    .then(() => {
+        app.listen(5000);
+
+    })
+    .catch((err) => console.log(err));
