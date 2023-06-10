@@ -53,7 +53,7 @@ module.exports = class userController {
                 return
             }
 
-            const userExist = User.findOne({ email: email })
+            const userExist = await User.findOne({ email: email })
             if (!userExist) {
 
                 return res
