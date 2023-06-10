@@ -2,8 +2,8 @@ POST http://localhost:5000/api/services
 Content-Type: application/json
 
 {
-  "name": "algum serviço",
-  "description": "alguma descrição",
-  "price": 1000,
-  "image": "image url"
+  "name": "test tres service",
+  "description": "tree descrição",
+  "price": 4343,
+  "image": "4 url"
 }
