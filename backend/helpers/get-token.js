@@ -1,12 +1,10 @@
 const User = require("../models/user")
 
+const getToken = (req) => {
 
-const getToken = async(req) => {
-    const authorization = req.headers.authorization
-    const token = authorization.split(" ")[1]
-
+    const authHeaders = req.headers.authorization
+    const token = authHeaders.split(" ")[1]
 
     return token
 }
-
 module.exports = getToken

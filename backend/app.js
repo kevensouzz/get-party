@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 //SOLVE CORS
-// app.use(cors({ credentials: true, origin: "http://localhost:5000" }));
+app.use(cors({ credentials: true, origin: "http://localhost:5000/api" }));
 // db connection
 const conn = require("./db/conn")
 

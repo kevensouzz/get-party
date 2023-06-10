@@ -11,8 +11,9 @@ require("dotenv").config();
 async function main() {
     try {
 
+
         mongoose.set('strictQuery', true)
-        await mongoose.connect('mongodb+srv://leonardomarcelosantana:kygCllDSBPDQdlOi@restApi-project.z4rlwsk.mongodb.net/dbrest?retryWrites=true&w=majority')
+        await mongoose.connect('mongodb+srv://leonardomarcelosantana:t78u16o6BJ2ogqaa@test-restapi.mwbneca.mongodb.net/test-restApi?retryWrites=true&w=majority')
         console.log('conectou')
     } catch (e) {
         console.error(e)

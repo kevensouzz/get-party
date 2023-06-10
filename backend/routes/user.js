@@ -3,14 +3,11 @@ const userController = require("../controllers/userController")
 
 
 router
-    .route("/users/login")
-    .post((req, res) => userController.login(req, res))
-
-router
     .route("/users/register")
     .post((req, res) => userController.register(req, res))
-
-
+router
+    .route("/users/login")
+    .post((req, res) => userController.login(req, res))
 router
     .route("/users")
     .get((req, res) => userController.getAll(req, res))

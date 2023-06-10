@@ -2,7 +2,7 @@ const User = require("../models/user")
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const createUserToken = require('../helpers/create-user-token')
-const getUserByToken = require('../helpers/get-user-by-id')
+const getUserByToken = require('../helpers/get-user-by-token')
 const getToken = require('../helpers/get-token')
 module.exports = class userController {
 
@@ -18,26 +18,25 @@ module.exports = class userController {
                 res.status(422).json({ 'message': 'Senha e confirmação de senha devem ser iguais!' })
                 return
             }
-            return res.status(100).json({ message: name })
 
-            // const userExist = User.findOne({ email: email })
-            // if (userExist) {
-            //     return res
-            //         .status(422)
-            //         .json({ message: 'há usuário cadastrado com este e-mail!' })
+            const users = await User.findOne({ email: email })
 
-            // }
+            if (users) {
+                return res
+                    .status(422)
+                    .json({ message: 'há usuário cadastrado com este e-mail!' })
+            }
 
             const salt = await bcrypt.genSalt(12)
             const passwordHash = await bcrypt.hash(password, salt)
 
-            // const user = new User({
-            //     name: name,
-            //     email: email,
-            //     password: passwordHash,
-            // })
-            // const response = await User.save(user)
-            // await createUserToken(response, req, res)
+            const user = new User({
+                name: name,
+                email: email,
+                password: passwordHash,
+            })
+            const response = await User.create(user)
+            await createUserToken(req, res, response)
 
             // res.status(201).json({ response, success: "success!" })
 
@@ -63,11 +62,11 @@ module.exports = class userController {
 
             }
             const checkPass = bcrypt.compare(password, userExist.password)
-            if (!checkPassword) {
+            if (!checkPass) {
                 return res.status(422).json({ message: 'Senha inválida' })
             }
 
-            await createUserToken(userExist, req, res)
+            await createUserToken(req, res, userExist)
 
         } catch (error) {
             res.status(500).json({ message: error })
