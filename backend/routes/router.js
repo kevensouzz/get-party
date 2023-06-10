@@ -8,4 +8,7 @@ router.use("/", serviceRouter)
 const partyRouter = require("./party")
 router.use("/", partyRouter)
 
+const usersRouter = require("./user")
+router.use("/", usersRouter)
+
 module.exports = router
