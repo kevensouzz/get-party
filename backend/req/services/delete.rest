@@ -1,1 +1,0 @@
-DELETE http://localhost:5000/api/services/6483a93f183c59c67aabdfb4

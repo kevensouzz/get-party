@@ -1,5 +1,0 @@
-GET http://localhost:3000/api/services
-
-###
-
-GET http://localhost:5000/api/services/6472a871b60806b2e42a5d59
