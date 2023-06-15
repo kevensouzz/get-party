@@ -1,7 +1,7 @@
-export default function Home() {
+export default function Contact() {
   return (
     <main className={`flex flex-col items-center justify-center w-full h-full`}>
-      Home
+      Contact
     </main>
   );
 }
