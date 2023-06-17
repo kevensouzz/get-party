@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata = {
-  title: "MERN APP",
+  title: "Get Party",
   description: "fullstack aplication, using ReactJS, NodeJS, MongoDB",
 };
 
@@ -13,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`flex flex-col bg-neutral-900 w-screen h-screen select-none text-white`}>
+      <body
+        className={`flex flex-col bg-neutral-900 w-screen h-screen select-none text-white`}
+      >
         <Header />
         {children}
       </body>

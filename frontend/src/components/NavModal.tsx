@@ -1,0 +1,22 @@
+import { X } from "lucide-react";
+import Link from "next/link";
+
+export default function NavModal() {
+  return (
+    <section
+      className={`sm:hidden fixed inset-0 bg-black bg-opacity-75 backdrop-blur-md flex flex-col justify-center items-center cursor-default px-5 max-[320px]:px-2`}
+    >
+      <header className={`w-full h-20 flex items-center justify-end`}>
+        <X className={`cursor-pointer w-min h-min`} />
+      </header>
+      <main
+        className={`w-full h-full flex flex-col justify-center items-center text-2xl pb-10 space-y-10`}
+      >
+        <Link href={"/"}>Home</Link>
+        <Link href={"/services"}>Services</Link>
+        <Link href={"/about"}>About</Link>
+        <Link href={"/contact"}>Contact</Link>
+      </main>
+    </section>
+  );
+}
