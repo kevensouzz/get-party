@@ -42,9 +42,7 @@ export default async function Contact() {
         className={`h-full w-1/2 flex flex-col items-center justify-center px-24 space-y-10 max-xl:px-10 max-lg:px-4 max-md:p-2 max-sm:w-full max-sm:h-1/2`}
       >
         <span className={`flex flex-col max-sm:items-center`}>
-          <div className={`text-5xl max-md:text-4xl`}>
-            {data.name}
-          </div>
+          <div className={`text-5xl max-md:text-4xl`}>{data.name}</div>
           <div
             className={`text-2xl flex items-center gap-2 max-md:text-xl max-[320px]:text-base max-md:gap-[2px]`}
           >
@@ -59,7 +57,7 @@ export default async function Contact() {
           <Link
             href={"https://github.com/kevensouzz"}
             target="_blank"
-            className={`flex items-center gap-2 hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
+            className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
           >
             <Github />
             <p className={`max-md:hidden`}>{data.login}</p>
@@ -68,7 +66,7 @@ export default async function Contact() {
           <Link
             href={"https://github.com/kevensouzz/mern-app"}
             target="_blank"
-            className={`flex items-center gap-2 hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
+            className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
           >
             <FolderGit />
             <p className={`max-md:hidden`}>{repos[4].name}</p>
@@ -77,10 +75,14 @@ export default async function Contact() {
           <Link
             href={"https://www.linkedin.com/in/kevenssouza1/"}
             target="_blank"
-            className={`flex gap-2 hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
+            className={`flex gap-2 md:hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
           >
             <Linkedin />
-            <p className={`max-[920px]:mt-[2px] max-[800px]:mt-[3px] max-md:hidden`}>{data.name}</p>
+            <p
+              className={`max-[920px]:mt-[2px] max-[800px]:mt-[3px] max-md:hidden`}
+            >
+              {data.name}
+            </p>
           </Link>
         </span>
       </section>

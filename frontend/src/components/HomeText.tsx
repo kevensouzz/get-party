@@ -9,7 +9,7 @@ interface props {
 export default function HomeText(prop: props) {
   return (
     <section
-      className={`w-full h-1/2 flex flex-col justify-center items-center text-4xl  max-lg:text-2xl max-md:text-lg max-sm:text-sm max-[375px]:px-14`}
+      className={`w-full h-1/2 flex flex-col justify-center items-center text-3xl max-xl:text-2xl max-lg:text-xl max-lg:p-3 max-lg:items-start max-md:text-lg max-sm:items-center max-[425px]:text-sm max-[320px]:text-xs`}
     >
       {prop.firstText}
       <span>
