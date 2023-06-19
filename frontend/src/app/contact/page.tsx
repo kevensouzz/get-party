@@ -1,25 +1,7 @@
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
-
-async function getData() {
-  const res = await fetch("https://api.github.com/users/kevensouzz");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
-
-async function getRepos() {
-  const res = await fetch("https://api.github.com/users/kevensouzz/repos");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
+import getData from "@/fetch/getData";
+import getRepos from "@/fetch/getRepos";
 
 export default async function Contact() {
   const data = await getData();
