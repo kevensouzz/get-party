@@ -1,4 +1,4 @@
-export default async function getData() {
+export default async function GithubData() {
   const res = await fetch("https://api.github.com/users/kevensouzz");
 
   if (!res.ok) {

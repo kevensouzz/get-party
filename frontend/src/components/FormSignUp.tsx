@@ -27,9 +27,9 @@ export default function FormSignUp() {
     resolver: zodResolver(schema),
   });
 
-  const handleForm = (data: formProps) => {
+  async function handleForm(data: formProps) {
     console.log(data);
-  };
+  }
 
   return (
     <form

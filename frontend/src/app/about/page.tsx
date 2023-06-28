@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <main className={`w-full h-full flex items-center justify-center`}>
+    <main className={`w-full h-[88vh] flex items-center justify-center`}>
       <section
         className={`flex flex-col justify-evenly self-center text-justify font-light text-2xl px-20 space-y-4 h-5/6 w-2/3 max-lg:px-8 max-lg:text-lg max-md:px-4 max-md:w-5/6 max-sm:px-0 max-sm:text-base max-[375px]:text-sm max-[320px]:text-xs`}
       >

@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex flex-col bg-neutral-900 w-screen h-screen max-h-full max-w-full select-none text-white`}
+        className={`flex flex-col bg-neutral-900 select-none text-white`}
       >
         <Header />
         {children}

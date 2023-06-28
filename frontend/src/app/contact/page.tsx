@@ -1,7 +1,7 @@
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
-import getData from "@/fetch/getData";
-import getRepos from "@/fetch/getRepos";
+import getData from "@/fetch/GithubData";
+import getRepos from "@/fetch/GithubRepos";
 
 export default async function Contact() {
   const data = await getData();
@@ -9,7 +9,7 @@ export default async function Contact() {
 
   return (
     <main
-      className={`flex items-center justify-center w-full h-full max-sm:flex-col`}
+      className={`flex items-center justify-center w-full h-[88vh] max-sm:flex-col`}
     >
       <section
         className={`h-full w-1/2 flex items-center justify-center max-sm:w-full max-sm:h-1/2`}
