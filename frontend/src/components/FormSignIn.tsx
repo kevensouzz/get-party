@@ -1,24 +1,19 @@
 "use client";
 import { CheckCircle } from "lucide-react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import Link from "next/link";
 
 const schema = z
   .object({
-    name: z.string().nonempty().max(12),
     email: z.string().email(),
-    password: z.string().min(6),
-    confirmPassword: z.string().min(6),
-  })
-  .refine((fields) => fields.password === fields.confirmPassword, {
-    path: ["confirmPassword"],
+    password: z.string().nonempty(),
   });
 
 type formProps = z.infer<typeof schema>;
 
-export default function FormSignUp() {
+export default function FormSignIn() {
   const {
     register,
     handleSubmit,
@@ -37,17 +32,6 @@ export default function FormSignUp() {
       onSubmit={handleSubmit(handleForm)}
       className={`w-full h-full flex flex-col justify-center items-center gap-4 max-[375px]:gap-3`}
     >
-      <span className="w-full space-y-1">
-        <input
-          {...register("name")}
-          className={`w-full h-10 rounded-md p-4 focus-visible:outline-none text-black`}
-          placeholder="Digite seu nome"
-          type="text"
-        />
-        {errors.name?.message && (
-          <p className="text-xs">{errors.name.message}</p>
-        )}
-      </span>
 
       <span className={`w-full space-y-1`}>
         <input
@@ -74,30 +58,17 @@ export default function FormSignUp() {
         )}
       </span>
 
-      <span className={`w-full space-y-1`}>
-        <input
-          {...register("confirmPassword")}
-          className={`w-full h-10 rounded-md p-4 focus-visible:outline-none text-black`}
-          placeholder="Confirme sua senha"
-          type="password"
-          autoComplete="off"
-        />
-        {errors.confirmPassword?.message && (
-          <p className="text-xs">{errors.confirmPassword.message}</p>
-        )}
-      </span>
-
       <button
         type="submit"
         className={`w-full h-10 bg-black rounded-md flex justify-center items-center font-medium text-lg hover:text-red-600 transition-all ease-linear gap-1`}
       >
-        Sign-up
+        Sign-in
         <CheckCircle className="w-5 h-5" />
       </button>
       <p className="uppercase text-xs font-medium">
-        já tem uma conta?{" "}
-        <Link className="underline" href={"/sign-in"}>
-          Login
+        ainda não tem uma conta?{" "}
+        <Link className="underline" href={"/sign-up"}>
+          cadastrar
         </Link>
       </p>
     </form>
