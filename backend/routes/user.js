@@ -16,9 +16,9 @@ router
     .route("/users/:id")
     .get((req, res) => userController.getUserById(req, res))
 
-// router
-//     .route("/users/:id")
-//     .delete((req, res) => userController.delete(req, res))
+router
+    .route("/users/:id")
+    .delete((req, res) => userController.delete(req, res))
 
 router
     .route("/users/:id")
