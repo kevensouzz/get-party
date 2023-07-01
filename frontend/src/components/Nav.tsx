@@ -18,7 +18,7 @@ export default function Nav() {
         className={`flex items-center justify-between w-full max-sm:hidden`}
       >
         <Link href={"/"}>Home</Link>
-        <Link href={"/sign-in"}>Services</Link>
+        <Link href={"/services"}>Services</Link>
         <Link href={"/about"}>About</Link>
         <Link href={"/contact"}>Contact</Link>
       </span>

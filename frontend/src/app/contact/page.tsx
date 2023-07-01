@@ -1,11 +1,10 @@
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
-import getData from "@/fetch/GithubData";
-import getRepos from "@/fetch/GithubRepos";
+import GithubAPI from "@/functions/fetch/Github";
 
 export default async function Contact() {
-  const data = await getData();
-  const repos = await getRepos();
+  const GithubData = await GithubAPI("");
+  const GithubReposData = await GithubAPI("/repos");
 
   return (
     <main
@@ -16,7 +15,7 @@ export default async function Contact() {
       >
         <img
           className={`rounded-full max-lg:max-h-96 max-lg:max-w-96 max-[920px]:max-h-80 max-[920px]:max-w-80 max-md:max-h-60 max-md:max-w-60`}
-          src={data.avatar_url}
+          src={GithubData.avatar_url}
           alt="Keven's Github picture"
         />
       </section>
@@ -24,12 +23,12 @@ export default async function Contact() {
         className={`h-full w-1/2 flex flex-col items-center justify-center px-24 space-y-10 max-xl:px-10 max-lg:px-4 max-md:p-2 max-sm:w-full max-sm:h-1/2`}
       >
         <span className={`flex flex-col max-sm:items-center`}>
-          <div className={`text-5xl max-md:text-4xl`}>{data.name}</div>
+          <div className={`text-5xl max-md:text-4xl`}>{GithubData.name}</div>
           <div
             className={`text-2xl flex items-center gap-2 max-md:text-xl max-[320px]:text-base max-md:gap-[2px]`}
           >
             <MapPin className={`max-md:w-5 max-sm:w-4`} />
-            {data.location}
+            {GithubData.location}
           </div>
         </span>
 
@@ -42,7 +41,7 @@ export default async function Contact() {
             className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
           >
             <Github />
-            <p className={`max-md:hidden`}>{data.login}</p>
+            <p className={`max-md:hidden`}>{GithubData.login}</p>
           </Link>
 
           <Link
@@ -51,7 +50,7 @@ export default async function Contact() {
             className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
           >
             <FolderGit />
-            <p className={`max-md:hidden`}>{repos[4].name}</p>
+            <p className={`max-md:hidden`}>{GithubReposData[4].name}</p>
           </Link>
 
           <Link
@@ -63,7 +62,7 @@ export default async function Contact() {
             <p
               className={`max-[920px]:mt-[2px] max-[800px]:mt-[3px] max-md:hidden`}
             >
-              {data.name}
+              {GithubData.name}
             </p>
           </Link>
         </span>
