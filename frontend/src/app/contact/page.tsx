@@ -1,10 +1,27 @@
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
-import GithubAPI from "@/functions/fetch/Github";
+import { GithubAPI } from "@/functions/fetch/Github";
+
+type GithubDataType = {
+  avatar_url: string;
+  name: string;
+  location: string;
+  login: string;
+};
+
+type GithubReposDataType = {
+  name: string;
+  [3]: KeyAlgorithm;
+};
 
 export default async function Contact() {
-  const GithubData = await GithubAPI("");
-  const GithubReposData = await GithubAPI("/repos");
+  const GithubData = await GithubAPI<GithubDataType>("", {
+    method: "GET",
+  });
+
+  const GithubReposData = await GithubAPI<GithubReposDataType>("/repos", {
+    method: "GET",
+  });
 
   return (
     <main
@@ -38,7 +55,7 @@ export default async function Contact() {
           <Link
             href={"https://github.com/kevensouzz"}
             target="_blank"
-            className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
+            className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-200 ease-linear max-[920px]:gap-1`}
           >
             <Github />
             <p className={`max-md:hidden`}>{GithubData.login}</p>
@@ -47,16 +64,16 @@ export default async function Contact() {
           <Link
             href={"https://github.com/kevensouzz/mern-app"}
             target="_blank"
-            className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
+            className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-200 ease-linear max-[920px]:gap-1`}
           >
             <FolderGit />
-            <p className={`max-md:hidden`}>{GithubReposData[4].name}</p>
+            <p className={`max-md:hidden`}>{GithubReposData[3].name}</p>
           </Link>
 
           <Link
             href={"https://www.linkedin.com/in/kevenssouza1/"}
             target="_blank"
-            className={`flex gap-2 md:hover:text-red-600 transition-all duration-300 ease-linear max-[920px]:gap-1`}
+            className={`flex gap-2 md:hover:text-red-600 transition-all duration-200 ease-linear max-[920px]:gap-1`}
           >
             <Linkedin />
             <p

@@ -4,7 +4,7 @@ require("dotenv").config();
 const kevdbHOST = process.env.DB_HOST_KEV;
 const kevdbUSER = process.env.DB_USER_KEV;
 const kevdbPASSWORD = process.env.DB_PASSWORD_KEV;
-const kevdbURL = `mongodb+srv://${kevdbUSER}:${kevdbPASSWORD}@${kevdbHOST}/mern-app?retryWrites=true&w=majority`;
+const kevdbURL = `mongodb+srv://${kevdbUSER}:${kevdbPASSWORD}@${kevdbHOST}/get-party?retryWrites=true&w=majority`;
 
 // const leodbHOST = process.env.DB_HOST_LEO;
 // const leodbUSER = process.env.DB_USER_LEO;
