@@ -22,14 +22,14 @@ export default function About() {
           <span className={`underline decoration-red-600`}>ExpressJS</span>.
           <br />
           No front-end foi usado{" "}
-          <span className={`underline decoration-blue-600`}>
+          <span className={`underline decoration-red-600`}>
             ReactJS
           </span> com{" "}
-          <span className={`underline decoration-blue-600`}>NextJS</span>.{" "}
-          <br />E para conectar a API com o{" "}
-          <span className={`underline decoration-yellow-500`}>MongoDB</span> foi
+          <span className={`underline decoration-red-600`}>NextJS</span>. <br />
+          E para conectar a API com o{" "}
+          <span className={`underline decoration-red-600`}>MongoDB</span> foi
           usado o{" "}
-          <span className={`underline decoration-yellow-500`}>Mongoose</span>.
+          <span className={`underline decoration-red-600`}>Mongoose</span>.
         </p>
       </section>
     </main>

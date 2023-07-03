@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import Link from "next/link";
+import NavLink from "./NavLink";
 
 export default function NavModal() {
   return (
@@ -12,10 +12,10 @@ export default function NavModal() {
       <main
         className={`w-full h-full flex flex-col justify-center items-center text-2xl pb-10 space-y-10`}
       >
-        <Link href={"/"}>Home</Link>
-        <Link href={"/services"}>Services</Link>
-        <Link href={"/about"}>About</Link>
-        <Link href={"/contact"}>Contact</Link>
+        <NavLink href={"/"} children={"Home"} />
+        <NavLink href={"/services"} children={"Services"} />
+        <NavLink href={"/about"} children={"About"} />
+        <NavLink href={"/contact"} children={"Contact"} />
       </main>
     </section>
   );

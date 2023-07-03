@@ -1,6 +1,6 @@
+import { GithubAPI } from "@/fetch/Github";
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
-import { GithubAPI } from "@/functions/fetch/Github";
 
 type GithubDataType = {
   avatar_url: string;
