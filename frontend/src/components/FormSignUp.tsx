@@ -96,7 +96,7 @@ export default function FormSignUp() {
       </button>
       <p className="uppercase text-xs font-medium">
         já tem uma conta?{" "}
-        <Link className="underline" href={"/sign-in"}>
+        <Link className="underline" href={"/services/sign-in"}>
           Login
         </Link>
       </p>

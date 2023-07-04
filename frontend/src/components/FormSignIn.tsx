@@ -67,7 +67,7 @@ export default function FormSignIn() {
       </button>
       <p className="uppercase text-xs font-medium">
         ainda não tem uma conta?{" "}
-        <Link className="underline" href={"/sign-up"}>
+        <Link className="underline" href={"/services/sign-up"}>
           cadastrar
         </Link>
       </p>
