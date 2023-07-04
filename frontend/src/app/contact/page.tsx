@@ -1,4 +1,4 @@
-import { GithubAPI } from "@/fetch/Github";
+import { GithubAPI } from "../../fetch/Github";
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
 
