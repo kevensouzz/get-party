@@ -18,7 +18,7 @@ async function main() {
         // await mongoose.connect(leodbURL)
 
         await mongoose.connect(kevdbURL)
-        console.log('conectou')
+        console.log('CONNECTED TO DB!')
     } catch (e) {
         console.error(e)
     }
