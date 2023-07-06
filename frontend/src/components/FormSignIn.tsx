@@ -13,6 +13,8 @@ const schema = z
 
 type formProps = z.infer<typeof schema>;
 
+// TODO: fazer requisição POST para a api 
+
 export default function FormSignIn() {
   const {
     register,
@@ -67,7 +69,7 @@ export default function FormSignIn() {
       </button>
       <p className="uppercase text-xs font-medium">
         ainda não tem uma conta?{" "}
-        <Link className="underline" href={"/services/sign-up"}>
+        <Link className="underline" href={"/sign-up"}>
           cadastrar
         </Link>
       </p>

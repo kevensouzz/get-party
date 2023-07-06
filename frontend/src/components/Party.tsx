@@ -25,8 +25,8 @@ export default function Party({
   return (
     <section
       className={`
-    w-[980px] h-[420px] bg-black bg-opacity-25 border border-red-600 rounded-md overflow-hidden
-    flex max-sm:flex-col max-lg:w-[720px] max-lg:h-[380px] max-md:w-[620px]
+    w-[980px] h-[420px] bg-black bg-opacity-25 border border-red-600 rounded-md overflow-hidden flex my-8
+    max-sm:flex-col max-lg:w-[720px] max-lg:h-[380px] max-md:w-[620px]
     max-md:h-[300px] max-sm:w-5/6 max-sm:h-[70vh]
     `}
     >
@@ -57,6 +57,8 @@ export default function Party({
             <DollarSign size={14} />
           </span>
         </div>
+
+        {/* TODO: fazer a página learn more contendo informações mais detalhadas da party */}
         <Link
           className="capitalize hover:text-zinc-950 font-medium ransition-all duration-200 ease-linear flex items-center justify-between"
           href={""}

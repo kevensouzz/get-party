@@ -1,58 +1,61 @@
-// import { GetPartyAPI } from "@/functions/fetch/GetParty";
-import Party from "@/components/Party";
-import Link from "next/link";
+// TODO: não permitir o acesso do usuario sem estar logado
 
-export default function Services() {
+import WelcomeServices from "@/components/WelcomeServices";
+import { GetPartyAPI } from "@/fetch/GetParty";
+import Party from "@/components/Party";
+
+// TODO: tipar índice dos arrays 
+
+type GetPartyDataType = [
+  {
+    title: string;
+    description: string;
+    author: string;
+    budget: number;
+    image: string;
+    services?: [
+      {
+        name: string;
+        description: string;
+        price: number;
+        image: string;
+      }
+    ];
+  }
+];
+
+export default async function Services() {
+  const GetPartyData = await GetPartyAPI<GetPartyDataType>("/parties", {
+    method: "GET",
+  });
+  
+  // TODO: fazer um map pra renderizar valores de um objeto da api, que corresponderá às props do componente Party
+
   return (
     <main
       className={`flex flex-col items-center justify-center w-full min-h-[88vh]`}
     >
-      <section className="bg-neutral-950 w-full h-[88vh] flex flex-col items-center justify-center">
-        <div className="w-full h-full"></div>
-        <div className="text-red-500 w-full flex items-center justify-center h-[7.5vh]">
-          <Link
-            className="flex items-center justify-center text-center h-full text-[10px] min-[425px]:text-xs
-            font-mono uppercase max-md:w-4/6 max-sm:w-5/6 max-[425px]:w-full max-[425px]:mx-2 max-[320px]:mx-0
-            hover:text-red-600 transition-all ease-linear duration-200"
-            href="#parties"
-          >
-            see our services shared by customers themselves followed by their
-            appropriate prices and ratings!
-          </Link>
-        </div>
-      </section>
+      <WelcomeServices />
 
-      <section
-        id="parties"
-        className="min-h-screen w-full flex flex-col items-center pb-32"
-      >
+      <section className={`w-full flex flex-col items-center`}>
+        {/* PARTIES */}
+
+        {/* TODO: renderizar os componentes sem erro de tipagem no índice */}
+
         <Party
-          author={"Keven Souza"}
-          budget={25000}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eum vero soluta delectus facilis error, unde veniam optio voluptates molestiae modi doloribus quos porro, dolores placeat iusto tempora. Tenetur, sed!"
-          }
-          image={"https://picsum.photos/750/750"}
-          title={"Festa dos mano"}
+          author={GetPartyData[0].author}
+          budget={GetPartyData[0].budget}
+          description={GetPartyData[0].description}
+          image={GetPartyData[0].image}
+          title={GetPartyData[0].title}
         />
-        <Party
-          author={"Keven Souza"}
-          budget={25000}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eum vero soluta delectus facilis error, unde veniam optio voluptates molestiae modi doloribus quos porro, dolores placeat iusto tempora. Tenetur, sed!"
-          }
-          image={"https://picsum.photos/750/750"}
-          title={"Festa dos mano"}
-        />
-        <Party
-          author={"Keven Souza"}
-          budget={25000}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eum vero soluta delectus facilis error, unde veniam optio voluptates molestiae modi doloribus quos porro, dolores placeat iusto tempora. Tenetur, sed!"
-          }
-          image={"https://picsum.photos/750/750"}
-          title={"Festa dos mano"}
-        />
+        {/* <Party
+          author={GetPartyData[1].author}
+          budget={GetPartyData[1].budget}
+          description={GetPartyData[1].description}
+          image={GetPartyData[1].image}
+          title={GetPartyData[1].title}
+        /> */}
       </section>
     </main>
   );
