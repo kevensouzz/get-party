@@ -1,18 +1,18 @@
 import { ArrowUpRight, DollarSign, User } from "lucide-react";
 import Link from "next/link";
 
-interface PartyApiTypeProps {
+type PartyApiTypeProps = {
   title: string;
   description: string;
   author: string;
   budget: number;
   image: string;
-  // services: {
-  //   name: string;
-  //   description: string;
-  //   price: Number;
-  //   image: string;
-  // };
+  services?: [
+    name: string,
+    description: string,
+    price: Number,
+    image: string,
+  ];
 }
 
 export default function Party({
@@ -25,7 +25,7 @@ export default function Party({
   return (
     <section
       className={`
-    w-[980px] h-[420px] bg-black bg-opacity-25 border border-red-600 rounded-md overflow-hidden mt-40
+    w-[980px] h-[420px] bg-black bg-opacity-25 border border-red-600 rounded-md overflow-hidden
     flex max-sm:flex-col max-lg:w-[720px] max-lg:h-[380px] max-md:w-[620px]
     max-md:h-[300px] max-sm:w-5/6 max-sm:h-[70vh]
     `}
