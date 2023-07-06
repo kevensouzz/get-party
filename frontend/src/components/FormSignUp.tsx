@@ -18,8 +18,6 @@ const schema = z
 
 type formProps = z.infer<typeof schema>;
 
-// TODO: fazer requisição POST para a api
-
 export default function FormSignUp() {
   const {
     register,

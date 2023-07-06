@@ -7,13 +7,8 @@ type PartyApiTypeProps = {
   author: string;
   budget: number;
   image: string;
-  services?: [
-    name: string,
-    description: string,
-    price: Number,
-    image: string,
-  ];
-}
+  services?: [name: string, description: string, price: Number, image: string];
+};
 
 export default function Party({
   title,
@@ -58,7 +53,6 @@ export default function Party({
           </span>
         </div>
 
-        {/* TODO: fazer a página learn more contendo informações mais detalhadas da party */}
         <Link
           className="capitalize hover:text-zinc-950 font-medium ransition-all duration-200 ease-linear flex items-center justify-between"
           href={""}

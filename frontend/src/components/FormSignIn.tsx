@@ -5,15 +5,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-const schema = z
-  .object({
-    email: z.string().email(),
-    password: z.string().nonempty(),
-  });
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().nonempty(),
+});
 
 type formProps = z.infer<typeof schema>;
-
-// TODO: fazer requisição POST para a api 
 
 export default function FormSignIn() {
   const {
@@ -34,7 +31,6 @@ export default function FormSignIn() {
       onSubmit={handleSubmit(handleForm)}
       className={`w-full h-full flex flex-col justify-center items-center gap-4 max-[375px]:gap-3`}
     >
-
       <span className={`w-full space-y-1`}>
         <input
           {...register("email")}
