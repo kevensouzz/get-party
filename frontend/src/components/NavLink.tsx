@@ -1,9 +1,6 @@
-import Link, { LinkProps } from "next/link";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-type ActiveLinkProps = {
-  children: React.ReactNode;
-} & LinkProps;
+import { ActiveLinkProps } from "@/types/ActiveLinkProps";
 
 export default function NavLink({ href, children, ...rest }: ActiveLinkProps) {
   const pathname = usePathname();

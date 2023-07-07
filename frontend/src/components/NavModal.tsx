@@ -6,7 +6,7 @@ export default function NavModal() {
     <section
       className={`sm:hidden fixed inset-0 bg-black bg-opacity-75 backdrop-blur-md flex flex-col justify-center items-center cursor-default px-5 max-[320px]:px-2`}
     >
-      <header className={`w-full h-20 flex items-center justify-end`}>
+      <header className={`w-full h-[14vh] flex items-center justify-end`}>
         <X className={`cursor-pointer w-min h-min`} />
       </header>
       <main

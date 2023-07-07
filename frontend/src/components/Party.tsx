@@ -2,15 +2,7 @@
 import { ArrowUpRight, DollarSign, User } from "lucide-react";
 import { useState } from "react";
 import PartyModal from "./PartyModal";
-
-type PartyApiTypeProps = {
-  title: string;
-  description: string;
-  author: string;
-  budget: number;
-  image: string;
-  services?: [name: string, description: string, price: Number, image: string];
-};
+import { PartyApiTypeProps } from "@/types/PartyApiTypeProps";
 
 export default function Party({
   title,
