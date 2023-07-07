@@ -1,5 +1,7 @@
+"use client";
 import { ArrowUpRight, DollarSign, User } from "lucide-react";
-import Link from "next/link";
+import { useState } from "react";
+import PartyModal from "./PartyModal";
 
 type PartyApiTypeProps = {
   title: string;
@@ -17,6 +19,19 @@ export default function Party({
   budget,
   image,
 }: PartyApiTypeProps) {
+  const [partyModal, setPartyModal] = useState(false);
+  const [showCloseButton, setShowCloseButton] = useState(false);
+
+  const openModal = () => {
+    setPartyModal(!partyModal);
+    setShowCloseButton(!partyModal);
+  };
+
+  const closeModal = () => {
+    setPartyModal(false);
+    setShowCloseButton(false);
+  };
+
   return (
     <section
       className={`
@@ -53,13 +68,14 @@ export default function Party({
           </span>
         </div>
 
-        <Link
-          className="capitalize hover:text-zinc-950 font-medium ransition-all duration-200 ease-linear flex items-center justify-between"
-          href={""}
+        <span
+          onClick={openModal}
+          className="hover:text-zinc-950 font-medium ransition-all duration-200 ease-linear flex items-center justify-between cursor-pointer"
         >
-          learn more
+          Learn More
           <ArrowUpRight size={18} />
-        </Link>
+        </span>
+        {partyModal && <PartyModal onClose={closeModal} />}
       </div>
     </section>
   );

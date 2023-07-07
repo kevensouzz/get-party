@@ -6,7 +6,7 @@ import NavLink from "./NavLink";
 
 export default function Nav() {
   const [menu, setMenu] = useState(false);
-  const abrirFechar = () => {
+  const setEnable = () => {
     setMenu(!menu);
   };
 
@@ -25,7 +25,7 @@ export default function Nav() {
 
       <span
         className={`sm:hidden w-min h-min flex items-center justify-end cursor-pointer`}
-        onClick={abrirFechar}
+        onClick={setEnable}
       >
         {menu ? <NavModal /> : <AlignJustify />}
       </span>
