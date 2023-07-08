@@ -16,6 +16,7 @@ export default async function Parties() {
           description={party.description}
           image={party.image}
           title={party.title}
+          _id={party._id}
         />
       ))}
     </section>

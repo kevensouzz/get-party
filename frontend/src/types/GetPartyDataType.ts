@@ -5,6 +5,7 @@ export type GetPartyDataType = [
     author: string;
     budget: number;
     image: string;
+    _id: string;
     services?: [
       {
         name: string;

@@ -4,6 +4,7 @@ export type PartyApiTypeProps = {
   author: string;
   budget: number;
   image: string;
+  _id: string;
   services?: [
     { name: string; description: string; price: Number; image: string }
   ];
