@@ -1,9 +1,9 @@
-export type PartyApiTypeProps = {
-  title: string;
-  description: string;
+export type PartyModalProps = {
+  onClose: () => void;
   author: string;
   budget: number;
-  image: string;
+  description: string;
+  title: string;
   services?: [
     { name: string; description: string; price: Number; image: string }
   ];

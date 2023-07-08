@@ -29,11 +29,11 @@ export default function Party({
       className={`
     w-[980px] h-[420px] bg-black bg-opacity-25 border border-red-600 rounded-md overflow-hidden flex my-8
     max-sm:flex-col max-lg:w-[720px] max-lg:h-[380px] max-md:w-[620px]
-    max-md:h-[300px] max-sm:w-5/6 max-sm:h-[70vh]
+    max-md:h-[300px] max-sm:w-[375px] max-sm:h-[80vh] max-[400px]:w-[300px] max-[320px]:w-[260px]
     `}
     >
       <div
-        className={`h-full w-1/2 flex items-center justify-center p-8 max-sm:w-full max-sm:h-1/2`}
+        className={`h-full w-1/2 flex items-center justify-center p-8 max-sm:w-full max-sm:h-1/2 max-sm:p-4`}
       >
         <img
           className="w-full h-full rounded-xl"
@@ -43,7 +43,7 @@ export default function Party({
       </div>
 
       <div
-        className={`h-full w-1/2 flex flex-col items-center justify-around bg-red-600 p-4 max-sm:w-full max-sm:h-1/2 max-sm:p-2 max-[425px]:p-0 max-[425px]:px-2`}
+        className={`h-full w-1/2 flex flex-col items-center justify-around bg-red-600 p-4 max-sm:w-full max-sm:h-1/2 max-sm:p-0 max-sm:px-2`}
       >
         <h1 className="font-semibold uppercase text-lg">{title}</h1>
         <p className="text-sm px-8 text-justify max-md:px-0 max-[375px]:text-xs">
@@ -67,7 +67,15 @@ export default function Party({
           Learn More
           <ArrowUpRight size={18} />
         </span>
-        {partyModal && <PartyModal onClose={closeModal} />}
+        {partyModal && (
+          <PartyModal
+            onClose={closeModal}
+            title={title}
+            description={description}
+            author={author}
+            budget={budget}
+          />
+        )}
       </div>
     </section>
   );
