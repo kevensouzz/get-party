@@ -95,9 +95,9 @@ export default function FormSignUp() {
         <CheckCircle className="w-5 h-5" />
       </button>
       <p className="uppercase text-xs font-medium">
-        já tem uma conta?{" "}
+        already have an account?{" "}
         <Link className="underline" href={"/sign-in"}>
-          Login
+          Sign-In
         </Link>
       </p>
     </form>
