@@ -50,6 +50,8 @@ export default function PartyModal({
                     key={index}
                     name={service.name}
                     price={service.price}
+                    description={service.description}
+                    _id={service._id}
                   />
                 ))}
               </div>
