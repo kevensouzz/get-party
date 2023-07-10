@@ -1,5 +1,6 @@
 import { PartyModalProps } from "@/types/PartyModalProps";
-import { X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
+import PartyService from "./PartyService";
 
 export default function PartyModal({
   onClose,
@@ -8,24 +9,24 @@ export default function PartyModal({
   description,
   title,
   services,
-  _id
+  _id,
 }: PartyModalProps) {
   return (
     <section
       className={`fixed inset-0 bg-black text-white bg-opacity-75 backdrop-blur-md flex flex-col justify-center items-center`}
     >
       <main
-        className={`bg-black overflow-hidden select-text flex flex-col rounded-2xl border border-red-600 
-        w-[500px] h-[500px] max-sm:w-[375px] max-sm:h-[425px] max-[425px]:w-[250px] max-[425px]:h-[375px]`}
+        className={`bg-black overflow-hidden flex flex-col rounded-2xl border border-red-600 select-text
+        w-5/6 h-5/6 max-sm:h-4/6`}
       >
         <header
-          className={`w-full h-1/6 bg-red-600 flex items-center justify-between px-4`}
+          className={`w-full h-1/6 bg-red-600 flex items-center justify-between px-4 max-sm:px-2`}
         >
           <h1 className="font-semibold">{title}</h1>
           <X onClick={onClose} className={`cursor-pointer w-8 h-8`} />
         </header>
         <section
-          className={`w-full h-full flex flex-col items-center p-4 gap-4`}
+          className={`w-full h-full flex flex-col items-center p-4 gap-4 max-sm:p-2 overflow-hidden`}
         >
           <div className="w-full flex items-center justify-between max-[425px]:text-sm">
             <span>Author: {author}</span>
@@ -34,12 +35,33 @@ export default function PartyModal({
           <span className="w-full flex items-center justify-center text-xs font-light">
             {_id}
           </span>
-          <span className="w-full text-sm font-light max-[425px]:text-xs text-justify">
+          <span className="w-full text-sm font-light max-[425px]:text-xs text-center px-8 max-md:px-0">
             {description}
           </span>
-          <span className="w-full flex flex-col items-center gap-2">
-            <p className="underline mb-2 font-medium">SERVICES</p>
-          </span>
+          <div className="w-full h-full flex flex-col items-center">
+            <span className="font-medium flex select-none mb-2">
+              SERVICES
+              <ChevronDown />
+            </span>
+            {services && services.length > 0 ? (
+              <div className="w-full space-y-4 h-full overflow-auto pt-4 pb-44">
+                {services.map((service, index) => (
+                  <PartyService
+                    key={index}
+                    name={service.name}
+                    price={service.price}
+                  />
+                ))}
+              </div>
+            ) : (
+              <span
+                className="w-full h-full flex items-center justify-center text-xl font-semibold uppercase select-none
+                max-[425px]:text-base max-[320px]:text-xs"
+              >
+                there are no services here!
+              </span>
+            )}
+          </div>
         </section>
       </main>
     </section>

@@ -5,7 +5,13 @@ export type PartyApiTypeProps = {
   budget: number;
   image: string;
   _id: string;
-  services?: [
-    { name: string; description: string; price: Number; image: string }
+  services: [
+    {
+      name: string;
+      description: string;
+      price: number;
+      image: string;
+      _id: string;
+    }
   ];
 };

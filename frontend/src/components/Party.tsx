@@ -10,7 +10,8 @@ export default function Party({
   author,
   budget,
   image,
-  _id
+  _id,
+  services
 }: PartyApiTypeProps) {
   const [partyModal, setPartyModal] = useState(false);
   const [showCloseButton, setShowCloseButton] = useState(false);
@@ -76,6 +77,7 @@ export default function Party({
             author={author}
             budget={budget}
             _id={_id}
+            services={services}
           />
         )}
       </div>

@@ -6,12 +6,13 @@ export type GetPartyDataType = [
     budget: number;
     image: string;
     _id: string;
-    services?: [
+    services: [
       {
         name: string;
         description: string;
         price: number;
         image: string;
+        _id: string;
       }
     ];
   }
