@@ -32,8 +32,7 @@ export default function PartyService({ name, price, _id }: PartyServiceProps) {
         onClick={openModal}
         className="flex items-center justify-center cursor-pointer select-none"
       >
-        More
-        <MoreVertical className="h-3 w-3 sm:h-4 sm:w-4" />
+        <MoreVertical />
       </p>
       {serviceModal && (
         <ServiceModal

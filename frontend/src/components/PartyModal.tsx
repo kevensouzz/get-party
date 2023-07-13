@@ -1,5 +1,5 @@
 import { PartyModalProps } from "@/types/PartyModalProps";
-import { ChevronDown, X } from "lucide-react";
+import { ChevronDown, DollarSign, MoreHorizontal, User, X } from "lucide-react";
 import PartyService from "./PartyService";
 
 export default function PartyModal({
@@ -28,8 +28,17 @@ export default function PartyModal({
           className={`w-full h-full flex flex-col items-center p-4 gap-4 max-sm:p-2 overflow-hidden`}
         >
           <div className="w-full flex items-center justify-between max-[425px]:text-sm">
-            <span>Author: {author}</span>
-            <span>Budget: {budget}</span>
+            <div className="flex items-center justify-around max-sm:justify-between h-full w-1/2">
+              <span className="flex items-center justify-center">
+                {author}
+                <User className="w-4 h-4" />
+              </span>
+              <span className="flex items-center justify-center">
+                {budget}
+                <DollarSign className="w-4 h-4" />
+              </span>
+            </div>
+            <MoreHorizontal />
           </div>
           <span className="w-full flex items-center justify-center text-xs font-light">
             {_id}
