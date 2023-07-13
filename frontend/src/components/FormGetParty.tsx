@@ -5,7 +5,7 @@ import { z } from "zod";
 import { CheckCircle, Plus } from "lucide-react";
 
 const schema = z.object({
-  title: z.string().nonempty().max(24),
+  title: z.string().nonempty().max(18),
   author: z.string().nonempty(),
   budget: z.string().nonempty("Number must contain at least 1 digit(s)"),
   imageURL: z.string().nonempty(),

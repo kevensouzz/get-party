@@ -1,5 +1,5 @@
 "use client";
-import { ArrowUpRight, DollarSign, User } from "lucide-react";
+import { ArrowUpRight, DollarSign, PartyPopper, User } from "lucide-react";
 import { useState } from "react";
 import PartyModal from "./PartyModal";
 import { PartyApiTypeProps } from "@/types/PartyApiTypeProps";
@@ -10,7 +10,7 @@ export default function Party({
   budget,
   image,
   _id,
-  services
+  services,
 }: PartyApiTypeProps) {
   const [partyModal, setPartyModal] = useState(false);
   const [showCloseButton, setShowCloseButton] = useState(false);
@@ -36,31 +36,19 @@ export default function Party({
       <div
         className={`h-full w-1/2 flex items-center justify-center p-8 max-sm:w-full max-sm:h-1/2 max-sm:p-4`}
       >
-        <img
-          className="w-full h-full rounded-xl"
-          src={image}
-          alt={image}
-        />
+        <img className="w-full h-full rounded-xl" src={image} alt={image} />
       </div>
 
       <div
-        className={`h-full w-1/2 flex flex-col items-center justify-evenly bg-red-600 p-4 max-sm:w-full max-sm:h-1/2 max-sm:p-0 max-sm:px-2`}
+        className={`h-full w-1/2 flex flex-col items-center justify-center bg-red-600 p-2 max-sm:w-full max-sm:h-1/2 max-sm:p-0 max-sm:px-2`}
       >
-        <h1 className="font-semibold uppercase text-lg">{title}</h1>
-        <div className="w-full h-[10%] flex items-center justify-around text-sm font-light capitalize">
-          <span className="flex gap-1 items-center justify-between">
-            <p>by: {author}</p>
-            <User size={14} />
-          </span>
-          <span className="flex gap-1 items-center justify-between">
-            <p>budget: {budget}</p>
-            <DollarSign size={14} />
-          </span>
-        </div>
-
+        <span className="font-semibold uppercase flex items-center justify-center text-2xl max-lg:text-xl">
+          {title}
+          <PartyPopper className="w-6 h-6 mb-1" />
+        </span>
         <span
           onClick={openModal}
-          className="hover:text-zinc-950 font-medium ransition-all duration-200 ease-linear flex items-center justify-between cursor-pointer"
+          className="hover:text-zinc-950 font-semibold ransition-all duration-200 ease-linear flex items-center justify-center cursor-pointer"
         >
           Learn More
           <ArrowUpRight size={18} />
