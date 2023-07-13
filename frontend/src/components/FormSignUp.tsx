@@ -41,7 +41,7 @@ export default function FormSignUp() {
         <input
           {...register("name")}
           className={`w-full h-10 rounded-md p-4 focus-visible:outline-none text-black`}
-          placeholder="Digite seu nome"
+          placeholder="Name"
           type="text"
         />
         {errors.name?.message && (
@@ -53,7 +53,7 @@ export default function FormSignUp() {
         <input
           {...register("email")}
           className={`w-full h-10 rounded-md p-4 focus-visible:outline-none text-black`}
-          placeholder="Digite seu email"
+          placeholder="Email"
           type="email"
         />
         {errors.email?.message && (
@@ -65,7 +65,7 @@ export default function FormSignUp() {
         <input
           {...register("password")}
           className={`w-full h-10 rounded-md p-4 focus-visible:outline-none text-black`}
-          placeholder="Digite sua senha"
+          placeholder="Password"
           type="password"
           autoComplete="off"
         />
@@ -78,7 +78,7 @@ export default function FormSignUp() {
         <input
           {...register("confirmPassword")}
           className={`w-full h-10 rounded-md p-4 focus-visible:outline-none text-black`}
-          placeholder="Confirme sua senha"
+          placeholder="Confirme the Password"
           type="password"
           autoComplete="off"
         />
