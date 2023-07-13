@@ -1,7 +1,6 @@
 export type GetPartyDataType = [
   {
     title: string;
-    description: string;
     author: string;
     budget: number;
     image: string;
@@ -9,7 +8,6 @@ export type GetPartyDataType = [
     services: [
       {
         name: string;
-        description: string;
         price: number;
         image: string;
         _id: string;

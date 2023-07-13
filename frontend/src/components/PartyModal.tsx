@@ -6,7 +6,6 @@ export default function PartyModal({
   onClose,
   author,
   budget,
-  description,
   title,
   services,
   _id,
@@ -35,22 +34,18 @@ export default function PartyModal({
           <span className="w-full flex items-center justify-center text-xs font-light">
             {_id}
           </span>
-          <span className="w-full text-sm font-light max-[425px]:text-xs text-center px-8 max-md:px-0">
-            {description}
-          </span>
           <div className="w-full h-full flex flex-col items-center">
             <span className="font-medium flex select-none mb-2">
               SERVICES
               <ChevronDown />
             </span>
             {services && services.length > 0 ? (
-              <div className="w-full space-y-4 h-full overflow-auto pt-4 pb-44">
+              <div className="w-full space-y-4 h-full overflow-auto pt-4 pb-20">
                 {services.map((service, index) => (
                   <PartyService
                     key={index}
                     name={service.name}
                     price={service.price}
-                    description={service.description}
                     _id={service._id}
                   />
                 ))}

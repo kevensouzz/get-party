@@ -1,6 +1,5 @@
 export type PartyApiTypeProps = {
   title: string;
-  description: string;
   author: string;
   budget: number;
   image: string;
@@ -8,7 +7,6 @@ export type PartyApiTypeProps = {
   services: [
     {
       name: string;
-      description: string;
       price: number;
       image: string;
       _id: string;

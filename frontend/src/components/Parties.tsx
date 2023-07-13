@@ -13,7 +13,6 @@ export default async function Parties() {
           key={index}
           author={party.author}
           budget={party.budget}
-          description={party.description}
           image={party.image}
           title={party.title}
           _id={party._id}

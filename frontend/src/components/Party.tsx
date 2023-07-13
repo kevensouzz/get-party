@@ -6,7 +6,6 @@ import { PartyApiTypeProps } from "@/types/PartyApiTypeProps";
 
 export default function Party({
   title,
-  description,
   author,
   budget,
   image,
@@ -40,17 +39,14 @@ export default function Party({
         <img
           className="w-full h-full rounded-xl"
           src={image}
-          alt={description}
+          alt={image}
         />
       </div>
 
       <div
-        className={`h-full w-1/2 flex flex-col items-center justify-around bg-red-600 p-4 max-sm:w-full max-sm:h-1/2 max-sm:p-0 max-sm:px-2`}
+        className={`h-full w-1/2 flex flex-col items-center justify-evenly bg-red-600 p-4 max-sm:w-full max-sm:h-1/2 max-sm:p-0 max-sm:px-2`}
       >
         <h1 className="font-semibold uppercase text-lg">{title}</h1>
-        <p className="text-sm px-8 text-justify max-md:px-0 max-[375px]:text-xs">
-          {description}
-        </p>
         <div className="w-full h-[10%] flex items-center justify-around text-sm font-light capitalize">
           <span className="flex gap-1 items-center justify-between">
             <p>by: {author}</p>
@@ -73,7 +69,6 @@ export default function Party({
           <PartyModal
             onClose={closeModal}
             title={title}
-            description={description}
             author={author}
             budget={budget}
             _id={_id}

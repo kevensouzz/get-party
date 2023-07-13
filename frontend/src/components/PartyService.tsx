@@ -4,7 +4,7 @@ import { DollarSign, MoreVertical } from "lucide-react";
 import { useState } from "react";
 import ServiceModal from "./ServiceModal";
 
-export default function PartyService({ name, price, _id, description }: PartyServiceProps) {
+export default function PartyService({ name, price, _id }: PartyServiceProps) {
   const [serviceModal, setServiceModal] = useState(false);
   const [showCloseButton, setShowCloseButton] = useState(false);
 
@@ -41,7 +41,6 @@ export default function PartyService({ name, price, _id, description }: PartySer
           name={name}
           price={price}
           _id={_id}
-          description={description}
         />
       )}
     </span>
