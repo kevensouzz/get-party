@@ -16,7 +16,6 @@ const partyController = {
 
       const party = {
         title: req.body.title,
-        description: req.body.description,
         author: req.body.author,
         budget: req.body.budget,
         image: req.body.image,
@@ -82,7 +81,6 @@ const partyController = {
 
     const party = {
       title: req.body.title,
-      description: req.body.description,
       author: req.body.author,
       budget: req.body.budget,
       image: req.body.image,
