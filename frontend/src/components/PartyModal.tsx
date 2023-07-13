@@ -1,5 +1,5 @@
 import { PartyModalProps } from "@/types/PartyModalProps";
-import { ChevronDown, DollarSign, MoreHorizontal, User, X } from "lucide-react";
+import { ChevronDown, DollarSign, Edit, Key, PartyPopper, User, X } from "lucide-react";
 import PartyService from "./PartyService";
 
 export default function PartyModal({
@@ -21,14 +21,17 @@ export default function PartyModal({
         <header
           className={`w-full h-1/6 bg-red-600 flex items-center justify-between px-4 max-sm:px-2`}
         >
-          <h1 className="font-semibold">{title}</h1>
+          <span className="font-semibold flex items-center justify-center gap-1">
+            {title}
+            <PartyPopper size={16} />
+            </span>
           <X onClick={onClose} className={`cursor-pointer w-8 h-8`} />
         </header>
         <section
           className={`w-full h-full flex flex-col items-center p-4 gap-4 max-sm:p-2 overflow-hidden`}
         >
           <div className="w-full flex items-center justify-between max-[425px]:text-sm">
-            <div className="flex items-center justify-around max-sm:justify-between h-full w-1/2">
+            <div className="flex items-center justify-start gap-4 h-full w-full">
               <span className="flex items-center justify-center">
                 {author}
                 <User className="w-4 h-4" />
@@ -38,10 +41,11 @@ export default function PartyModal({
                 <DollarSign className="w-4 h-4" />
               </span>
             </div>
-            <MoreHorizontal />
+            <Edit />
           </div>
-          <span className="w-full flex items-center justify-center text-xs font-light">
+          <span className="w-full flex items-center justify-center gap-1 text-xs font-light">
             {_id}
+            <Key className="mb-1" size={12} />
           </span>
           <div className="w-full h-full flex flex-col items-center">
             <span className="font-medium flex select-none mb-2">
