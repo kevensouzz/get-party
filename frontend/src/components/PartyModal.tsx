@@ -1,5 +1,13 @@
 import { PartyModalProps } from "@/types/PartyModalProps";
-import { ChevronDown, DollarSign, Edit, Key, PartyPopper, User, X } from "lucide-react";
+import {
+  ChevronDown,
+  DollarSign,
+  Edit,
+  Key,
+  PartyPopper,
+  User,
+  X,
+} from "lucide-react";
 import PartyService from "./PartyService";
 
 export default function PartyModal({
@@ -24,7 +32,7 @@ export default function PartyModal({
           <span className="font-semibold flex items-center justify-center gap-1">
             {title}
             <PartyPopper size={16} />
-            </span>
+          </span>
           <X onClick={onClose} className={`cursor-pointer w-8 h-8`} />
         </header>
         <section
@@ -41,7 +49,7 @@ export default function PartyModal({
                 <DollarSign className="w-4 h-4" />
               </span>
             </div>
-            <Edit />
+            <Edit className="cursor-pointer" />
           </div>
           <span className="w-full flex items-center justify-center gap-1 text-xs font-light">
             {_id}
