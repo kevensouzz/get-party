@@ -9,7 +9,7 @@ export default function Home() {
         className={`h-full w-1/2 max-sm:w-full max-sm:h-1/2 flex items-center justify-center`}
       >
         <div
-          className={`h-5/6 w-5/6 rounded-3xl bg-black bg-opacity-25 flex flex-col items-center justify-center text-9xl max-xl:text-8xl max-lg:text-7xl`}
+          className={`w-5/6 h-5/6 rounded-3xl bg-black bg-opacity-25 flex flex-col items-center justify-center text-9xl max-xl:text-8xl max-lg:text-7xl`}
         >
           <span
             className={`sm:cursor-pointer sm:hover:uppercase sm:hover:text-red-600`}
