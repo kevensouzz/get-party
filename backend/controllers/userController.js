@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const createUserToken = require("../helpers/create-user-token");
 const getUserByToken = require("../helpers/get-user-by-token");
 const getToken = require("../helpers/get-token");
@@ -10,15 +10,13 @@ module.exports = class userController {
       const { name, email, password, comfirmPass } = req.body;
 
       if (!name || !email || !password) {
-        res
-          .status(422)
-          .json({ message: "Campos obrigatórios não preenchidos!" });
+        res.status(422).json({ error: "there are required fields no filled in!" });
         return;
       }
       if (password != comfirmPass) {
         res
           .status(422)
-          .json({ message: "Senha e confirmação de senha devem ser iguais!" });
+          .json({ error: "password confirmation must be same as password!" });
         return;
       }
 
@@ -27,7 +25,9 @@ module.exports = class userController {
       if (users) {
         return res
           .status(422)
-          .json({ message: "há usuário cadastrado com este e-mail!" });
+          .json({
+            error: "there is already a has user registred with this email!",
+          });
       }
 
       const salt = await bcrypt.genSalt(12);
@@ -41,9 +41,9 @@ module.exports = class userController {
       const response = await User.create(user);
       await createUserToken(req, res, response);
 
-      // res.status(201).json({ response, success: "success!" })
+      // res.status(201).json({ response, success" })
     } catch (error) {
-      res.status(500).json({ message: error });
+      res.status(500).json(error);
     }
   }
   static async login(req, res) {
@@ -53,7 +53,7 @@ module.exports = class userController {
       if (!email || !password) {
         res
           .status(422)
-          .json({ message: "Campos obrigatórios não preenchidos!" });
+          .json({ error: "there are required fields not filled in!" });
         return;
       }
 
@@ -61,16 +61,16 @@ module.exports = class userController {
       if (!userExist) {
         return res
           .status(422)
-          .json({ message: "Não há usuário cadastrado com este e-mail!" });
+          .json({ error: "there is no user registered with this email!" });
       }
       const checkPass = bcrypt.compare(password, userExist.password);
       if (!checkPass) {
-        return res.status(422).json({ message: "Senha inválida" });
+        return res.status(422).json({ error: "invalid password" });
       }
 
       await createUserToken(req, res, userExist);
     } catch (error) {
-      res.status(500).json({ message: error });
+      res.status(500).json(error);
     }
   }
   static async getUserById(req, res) {
@@ -79,19 +79,19 @@ module.exports = class userController {
     const user = await User.findById(id);
 
     if (!user) {
-      res.status(422).json({ message: "Usuário não encontrado!" });
+      res.status(422).json({ error: "user not found!" });
       return;
     }
 
-    res.status(200).json({ user });
+    res.status(200).json(user);
   }
   static async getAll(req, res) {
     const users = await User.find();
     try {
-      res.status(200).json({ users: users });
+      res.status(200).json(users);
       return;
     } catch (error) {
-      res.status(500).json({ message: error });
+      res.status(500).json(error);
     }
   }
 
@@ -106,14 +106,14 @@ module.exports = class userController {
 
     // validations
     if (!name) {
-      res.status(422).json({ message: "O nome é obrigatório!" });
+      res.status(422).json({ error: "the name is required!" });
       return;
     }
 
     user.name = name;
 
     if (!email) {
-      res.status(422).json({ message: "O e-mail é obrigatório!" });
+      res.status(422).json({ error: "the e-mail is required!" });
       return;
     }
 
@@ -121,7 +121,7 @@ module.exports = class userController {
     const userExists = await User.findOne({ email: email });
 
     if (user.email !== email && userExists) {
-      res.status(422).json({ message: "Por favor, utilize outro e-mail!" });
+      res.status(422).json({ error: "please use another email!" });
       return;
     }
 
@@ -129,7 +129,7 @@ module.exports = class userController {
 
     // check if password match
     if (password != confirmpassword) {
-      res.status(422).json({ error: "As senhas não conferem." });
+      res.status(422).json({ error: "passwords don't match!" });
 
       // change password
     } else if (password == confirmpassword && password != null) {
@@ -150,11 +150,11 @@ module.exports = class userController {
         { new: true }
       );
       res.json({
-        message: "Usuário atualizado com sucesso!",
+        success: "user has been updated!",
         data: updatedUser,
       });
     } catch (error) {
-      res.status(500).json({ message: error });
+      res.status(500).json(error);
     }
   }
 
