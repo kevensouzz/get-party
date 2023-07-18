@@ -1,4 +1,4 @@
-import { PartyServiceProps } from "@/types/PartyServiceProps";
+import { PartyServiceProps } from "@/type/PartyServiceProps";
 import { DollarSign, Edit, Layers } from "lucide-react";
 
 export default function PartyService({ name, price }: PartyServiceProps) {

@@ -1,8 +1,8 @@
 "use client";
 import { ArrowUpRight, DollarSign, PartyPopper, User } from "lucide-react";
 import { useState } from "react";
+import { PartyApiTypeProps } from "@/type/PartyApiTypeProps";
 import PartyModal from "./PartyModal";
-import { PartyApiTypeProps } from "@/types/PartyApiTypeProps";
 
 export default function Party({
   title,

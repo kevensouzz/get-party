@@ -1,8 +1,8 @@
-import { GithubDataType } from "@/types/GithubDataType";
+import { GithubDataType } from "@/type/GithubDataType";
 import { GithubAPI } from "../../fetch/Github";
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
-import { GithubReposDataType } from "@/types/GithubReposDataType";
+import { GithubReposDataType } from "@/type/GithubReposDataType";
 
 export default async function Contact() {
   const GithubData = await GithubAPI<GithubDataType>("", {

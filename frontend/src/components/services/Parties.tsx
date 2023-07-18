@@ -1,6 +1,6 @@
 import { GetPartyAPI } from "@/fetch/GetParty";
-import Party from "@/components/Party";
-import { GetPartyDataType } from "@/types/GetPartyDataType";
+import { GetPartyDataType } from "@/type/GetPartyDataType";
+import Party from "./Party";
 
 export default async function Parties() {
   const GetPartyData = await GetPartyAPI<GetPartyDataType>("/parties", {

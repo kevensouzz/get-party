@@ -1,5 +1,5 @@
-import Parties from "@/components/Parties";
-import WelcomeServices from "@/components/WelcomeServices";
+import Parties from "@/components/services/Parties";
+import WelcomeServices from "@/components/services/WelcomeServices";
 
 export default async function Services() {
   return (

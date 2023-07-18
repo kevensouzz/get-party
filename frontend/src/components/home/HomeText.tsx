@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HomeTextProps } from "@/types/HomeTextProps";
+import { HomeTextProps } from "@/type/HomeTextProps";
 
 export default function HomeText(prop: HomeTextProps) {
   return (

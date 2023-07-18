@@ -1,4 +1,4 @@
-import { PartyModalProps } from "@/types/PartyModalProps";
+import { PartyModalProps } from "@/type/PartyModalProps";
 import {
   ChevronDown,
   DollarSign,
