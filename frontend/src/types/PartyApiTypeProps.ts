@@ -8,7 +8,6 @@ export type PartyApiTypeProps = {
     {
       name: string;
       price: number;
-      image: string;
       _id: string;
     }
   ];

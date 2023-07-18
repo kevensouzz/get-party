@@ -8,7 +8,6 @@ export type PartyModalProps = {
     {
       name: string;
       price: number;
-      image: string;
       _id: string;
     }
   ];
