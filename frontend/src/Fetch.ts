@@ -1,4 +1,4 @@
-export async function GET<T = unknown>(
+export async function Fetch<T = unknown>(
   input: RequestInfo | URL,
   init?: RequestInit | undefined
 ) {

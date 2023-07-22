@@ -1,17 +1,20 @@
 import { GithubDataType } from "@/type/GithubDataType";
-import { GET } from "../../fetch/Get";
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
 import { GithubReposDataType } from "@/type/GithubReposDataType";
+import { Fetch } from "@/Fetch";
 
 export default async function Contact() {
-  const GithubData = await GET<GithubDataType>(`${process.env.BASE_URL_GITHUB}`, {
+  const GithubData = await Fetch<GithubDataType>(`${process.env.GITHUB}`, {
     method: "GET",
   });
 
-  const GithubReposData = await GET<GithubReposDataType>(`${process.env.BASE_URL_GITHUB}/repos`, {
-    method: "GET",
-  });
+  const GithubReposData = await Fetch<GithubReposDataType>(
+    `${process.env.GITHUB}/repos`,
+    {
+      method: "GET",
+    }
+  );
 
   return (
     <main

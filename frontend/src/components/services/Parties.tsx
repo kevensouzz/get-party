@@ -1,11 +1,14 @@
 import { GetPartyDataType } from "@/type/GetPartyDataType";
 import Party from "./Party";
-import { GET } from "@/fetch/Get";
+import { Fetch } from "@/Fetch";
 
 export default async function Parties() {
-  const GetPartyData = await GET<GetPartyDataType>(`${process.env.BASE_URL_GETPARTY}/parties`, {
-    method: "GET",
-  });
+  const GetPartyData = await Fetch<GetPartyDataType>(
+    `${process.env.GETPARTY}/parties`,
+    {
+      method: "GET",
+    }
+  );
 
   return (
     GetPartyData.length > 0 && (
