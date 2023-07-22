@@ -2,13 +2,22 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle, Plus } from "lucide-react";
+import { CheckCircle } from "lucide-react";
+import { Fetch } from "@/Fetch";
+import { GetPartyPost } from "@/type/GetPartyPost";
 
 const schema = z.object({
   title: z.string().nonempty().max(18),
-  author: z.string().nonempty(),
-  budget: z.string().nonempty("Number must contain at least 1 digit(s)").max(7),
-  imageURL: z.string().nonempty(),
+  author: z.string().nonempty().max(18),
+  budget: z
+    .number({
+      required_error: "Budget is required",
+      invalid_type_error: "Budget is required",
+    })
+    .refine((val) => String(val).length <= 7, {
+      message: "Budget must have at most 7 characters",
+    }),
+  image: z.string().nonempty().max(28),
 });
 
 type formProps = z.infer<typeof schema>;
@@ -24,7 +33,13 @@ export default function FormGetParty() {
   });
 
   async function handleForm(data: formProps) {
-    console.log(data);
+    const POST = await Fetch<GetPartyPost>(`${process.env.GETPARTY}/parties`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
   }
 
   return (
@@ -58,7 +73,7 @@ export default function FormGetParty() {
       </span>
       <span className="w-full space-y-1">
         <input
-          {...register("budget")}
+          {...register("budget", { valueAsNumber: true })}
           className={`w-full h-10 sm:h-10 rounded-md p-4 focus-visible:outline-none text-black`}
           placeholder="Budget"
           type="number"
@@ -69,13 +84,13 @@ export default function FormGetParty() {
       </span>
       <span className="w-full space-y-1">
         <input
-          {...register("imageURL")}
+          {...register("image")}
           className={`w-full h-10 sm:h-10 rounded-md p-4 focus-visible:outline-none text-black`}
           placeholder="ImageURL"
           type="text"
         />
-        {errors.imageURL?.message && (
-          <p className="text-xs text-red-600">{errors.imageURL.message}</p>
+        {errors.image?.message && (
+          <p className="text-xs text-red-600">{errors.image.message}</p>
         )}
       </span>
       <button
