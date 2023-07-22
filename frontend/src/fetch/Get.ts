@@ -1,8 +1,8 @@
-export async function GetPartyAPI<T = unknown>(
+export async function GET<T = unknown>(
   input: RequestInfo | URL,
   init?: RequestInit | undefined
 ) {
-  const data = await fetch(`${process.env.BASE_URL_GETPARTY}${input}`, init);
+  const data = await fetch(input, init);
 
   if (!data.ok) {
     throw new Error("Failed to fetch data");
