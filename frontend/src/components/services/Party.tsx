@@ -1,8 +1,12 @@
-"use client";
-import { ArrowUpRight, DollarSign, PartyPopper, User } from "lucide-react";
-import { useState } from "react";
+import {
+  DollarSign,
+  Edit,
+  KeyRound,
+  PartyPopper,
+  Trash2,
+  User,
+} from "lucide-react";
 import { PartyApiTypeProps } from "@/type/PartyApiTypeProps";
-import PartyModal from "./PartyModal";
 
 export default function Party({
   title,
@@ -10,21 +14,7 @@ export default function Party({
   budget,
   image,
   _id,
-  services,
 }: PartyApiTypeProps) {
-  const [partyModal, setPartyModal] = useState(false);
-  const [showCloseButton, setShowCloseButton] = useState(false);
-
-  const openModal = () => {
-    setPartyModal(!partyModal);
-    setShowCloseButton(!partyModal);
-  };
-
-  const closeModal = () => {
-    setPartyModal(false);
-    setShowCloseButton(false);
-  };
-
   return (
     <section
       className={`
@@ -40,29 +30,46 @@ export default function Party({
       </div>
 
       <div
-        className={`h-full w-1/2 flex flex-col items-center justify-center bg-red-600 p-2 max-sm:w-full max-sm:h-1/2 max-sm:p-0 max-sm:px-2`}
+        className={`h-full w-1/2 flex flex-col bg-red-600 max-sm:w-full max-sm:h-1/2`}
       >
-        <span className="font-semibold uppercase flex items-center justify-center text-2xl max-lg:text-xl">
-          {title}
-          <PartyPopper className="w-6 h-6 mb-1" />
-        </span>
-        <span
-          onClick={openModal}
-          className="hover:text-zinc-950 font-semibold ransition-all duration-200 ease-linear flex items-center justify-center cursor-pointer"
+        <header className={`w-full h-[10%] flex items-center justify-end pr-4`}>
+          <span
+            className={`flex items-center justify-center gap-2 cursor-pointer sm:hover:text-black
+          transition-all ease-linear duration-150`}
+          >
+            <p className="text-xl font-medium">EDIT PARTY</p>
+            <Edit className="cursor-pointer mb-[2px]" />
+          </span>
+        </header>
+        <div
+          className={`w-full h-[90%] flex flex-col items-center justify-evenly py-8 select-text`}
         >
-          Learn More
-          <ArrowUpRight size={18} />
-        </span>
-        {partyModal && (
-          <PartyModal
-            onClose={closeModal}
-            title={title}
-            author={author}
-            budget={budget}
-            _id={_id}
-            services={services}
-          />
-        )}
+          <span className={`flex gap-1 items-center text-2xl font-semibold`}>
+            {title}
+            <PartyPopper />
+          </span>
+          <span className={`flex items-center gap-1 text-2xl font-semibold`}>
+            {author}
+            <User />
+          </span>
+          <span className={`flex gap-1 items-center text-2xl font-semibold`}>
+            {budget}
+            <DollarSign />
+          </span>
+          <span className={`flex items-center gap-1 font-light`}>
+            {_id}
+            <KeyRound size={16} />
+          </span>
+        </div>
+        <footer className={`w-full h-[10%] flex items-center justify-end pr-4`}>
+          <span
+            className={`flex items-center justify-center gap-2 cursor-pointer sm:hover:text-black
+          transition-all ease-linear duration-150`}
+          >
+            <p className="text-xl font-medium">DELETE PARTY</p>
+            <Trash2 className="cursor-pointer mb-[2px]" />
+          </span>
+        </footer>
       </div>
     </section>
   );
