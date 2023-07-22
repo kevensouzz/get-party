@@ -1,6 +1,5 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
-// const jwt = require("jsonwebtoken");
 const createUserToken = require("../helpers/create-user-token");
 const getUserByToken = require("../helpers/get-user-by-token");
 const getToken = require("../helpers/get-token");

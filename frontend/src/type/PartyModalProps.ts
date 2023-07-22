@@ -4,11 +4,4 @@ export type PartyModalProps = {
   budget: number;
   title: string;
   _id: string;
-  services: [
-    {
-      name: string;
-      price: number;
-      _id: string;
-    }
-  ];
 };

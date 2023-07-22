@@ -8,14 +8,12 @@ import {
   User,
   X,
 } from "lucide-react";
-import PartyService from "./PartyService";
 
 export default function PartyModal({
   onClose,
   author,
   budget,
   title,
-  services,
   _id,
 }: PartyModalProps) {
   return (
@@ -60,25 +58,6 @@ export default function PartyModal({
               SERVICES
               <ChevronDown />
             </span>
-            {services && services.length > 0 ? (
-              <div className="w-full space-y-4 h-full overflow-auto pt-4 pb-20">
-                {services.map((service, index) => (
-                  <PartyService
-                    key={index}
-                    name={service.name}
-                    price={service.price}
-                    _id={service._id}
-                  />
-                ))}
-              </div>
-            ) : (
-              <span
-                className="w-full h-full flex items-center justify-center text-xl font-semibold uppercase select-none
-                max-[425px]:text-base max-[320px]:text-xs"
-              >
-                there are no services here!
-              </span>
-            )}
           </div>
         </section>
       </main>

@@ -1,15 +1,5 @@
 const Party = require("../models/party");
 
-function checkPartyBudget(budget, services) {
-  const priceSum = services.reduce((sum, service) => sum + service.price, 0);
-
-  if (priceSum > budget) {
-    return false;
-  }
-
-  return true;
-}
-
 const partyController = {
   create: async (req, res) => {
     try {
@@ -18,13 +8,7 @@ const partyController = {
         author: req.body.author,
         budget: req.body.budget,
         image: req.body.image,
-        services: req.body.services,
       };
-
-      if (party.services && !checkPartyBudget(party.budget, party.services)) {
-        res.status(406).json({ error: "insufficient budget!" });
-        return;
-      }
 
       const response = await Party.create(party);
       res.status(201).json(response);
@@ -84,7 +68,6 @@ const partyController = {
       author: req.body.author,
       budget: req.body.budget,
       image: req.body.image,
-      services: req.body.services,
     };
 
     const updatedParty = await Party.findByIdAndUpdate(id, party);

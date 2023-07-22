@@ -21,14 +21,6 @@ const Party = mongoose.model(
         type: String,
         required: true,
       },
-      services: {
-        type: [
-          {
-            name: String,
-            price: Number,
-          },
-        ],
-      },
     },
     { timestamps: true }
   )

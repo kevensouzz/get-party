@@ -1,9 +1,9 @@
-import { GetPartyAPI } from "@/fetch/GetParty";
 import { GetPartyDataType } from "@/type/GetPartyDataType";
 import Party from "./Party";
+import { GET } from "@/fetch/Get";
 
 export default async function Parties() {
-  const GetPartyData = await GetPartyAPI<GetPartyDataType>("/parties", {
+  const GetPartyData = await GET<GetPartyDataType>(`${process.env.BASE_URL_GETPARTY}/parties`, {
     method: "GET",
   });
 
@@ -20,7 +20,6 @@ export default async function Parties() {
             image={party.image}
             title={party.title}
             _id={party._id}
-            services={party.services}
           />
         ))}
       </section>
