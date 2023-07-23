@@ -32,43 +32,39 @@ export default function Party({
       <div
         className={`h-full w-1/2 flex flex-col bg-red-600 max-sm:w-full max-sm:h-1/2`}
       >
-        <header className={`w-full h-[10%] flex items-center justify-end pr-4`}>
-          <span
-            className={`flex items-center justify-center gap-2 cursor-pointer sm:hover:text-black
-          transition-all ease-linear duration-150`}
-          >
-            <p className="text-xl font-medium">EDIT PARTY</p>
-            <Edit className="cursor-pointer mb-[2px]" />
-          </span>
+        <header
+          className={`w-full h-1/6 flex items-center justify-between px-4`}
+        >
+          <Trash2 className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150" />
+          <Edit className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150" />
         </header>
         <div
-          className={`w-full h-[90%] flex flex-col items-center justify-evenly py-8 select-text`}
+          className={`w-full h-4/6 flex flex-col items-center justify-evenly py-12 select-text`}
         >
-          <span className={`flex gap-1 items-center text-2xl font-semibold`}>
+          <span
+            className={`flex gap-1 items-center text-2xl font-medium max-[400px]:text-lg max-md:text-xl`}
+          >
             {title}
-            <PartyPopper />
+            <PartyPopper className="max-[400px]:w-5 max-[400px]h-5 sm:h-6 sm:w-6" />
           </span>
-          <span className={`flex items-center gap-1 text-2xl font-semibold`}>
+          <span
+            className={`flex items-center gap-1 text-xl font-medium max-[400px]:text-base max-md:text-lg`}
+          >
             {author}
-            <User />
+            <User className="max-[400px]:w-5 max-[400px]h-5 sm:h-6 sm:w-6" />
           </span>
-          <span className={`flex gap-1 items-center text-2xl font-semibold`}>
+          <span
+            className={`flex gap-1 items-center text-lg font-medium max-[400px]:text-sm max-md:text-base`}
+          >
             {budget}
-            <DollarSign />
-          </span>
-          <span className={`flex items-center gap-1 font-light`}>
-            {_id}
-            <KeyRound size={16} />
+            <DollarSign className="max-[400px]:w-5 max-[400px]h-5 sm:h-6 sm:w-6" />
           </span>
         </div>
-        <footer className={`w-full h-[10%] flex items-center justify-end pr-4`}>
-          <span
-            className={`flex items-center justify-center gap-2 cursor-pointer sm:hover:text-black
-          transition-all ease-linear duration-150`}
-          >
-            <p className="text-xl font-medium">DELETE PARTY</p>
-            <Trash2 className="cursor-pointer mb-[2px]" />
-          </span>
+        <footer
+          className={`flex items-center justify-center gap-1 font-light h-1/6 w-full`}
+        >
+          {_id}
+          <KeyRound className="w-4 h-4" />
         </footer>
       </div>
     </section>

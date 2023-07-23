@@ -4,9 +4,12 @@ import Link from "next/link";
 import { Fetch } from "@/Fetch";
 
 export default async function Contact() {
-  const GithubData = await Fetch<GithubDataType>(`${process.env.GITHUB}`, {
-    method: "GET",
-  });
+  const GithubData = await Fetch<GithubDataType>(
+    "https://api.github.com/users/kevensouzz",
+    {
+      method: "GET",
+    }
+  );
 
   return (
     <main
