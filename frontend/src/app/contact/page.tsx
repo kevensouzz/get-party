@@ -1,20 +1,12 @@
 import { GithubDataType } from "@/type/GithubDataType";
 import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
-import { GithubReposDataType } from "@/type/GithubReposDataType";
 import { Fetch } from "@/Fetch";
 
 export default async function Contact() {
   const GithubData = await Fetch<GithubDataType>(`${process.env.GITHUB}`, {
     method: "GET",
   });
-
-  const GithubReposData = await Fetch<GithubReposDataType>(
-    `${process.env.GITHUB}/repos`,
-    {
-      method: "GET",
-    }
-  );
 
   return (
     <main
@@ -60,7 +52,7 @@ export default async function Contact() {
             className={`flex items-center gap-2 md:hover:text-red-600 transition-all duration-200 ease-linear max-[920px]:gap-1`}
           >
             <FolderGit />
-            <p className={`max-md:hidden`}>{GithubReposData[3].name}</p>
+            <p className={`max-md:hidden`}>Get-Party</p>
           </Link>
 
           <Link
