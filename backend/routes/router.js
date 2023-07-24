@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
-  const links = { Parties: "/Parties", Users: "/users" };
+  const links = { Parties: "/parties", Users: "/users" };
   res.json(links);
 });
 
