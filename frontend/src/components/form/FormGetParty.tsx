@@ -7,7 +7,7 @@ import { Fetch } from "@/Fetch";
 import { GetPartyPost } from "@/type/GetPartyPost";
 
 const schema = z.object({
-  title: z.string().nonempty().max(18),
+  title: z.string().nonempty().max(22),
   author: z.string().nonempty().max(18),
   budget: z
     .number({
@@ -17,7 +17,7 @@ const schema = z.object({
     .refine((val) => String(val).length <= 7, {
       message: "Budget must have at most 7 characters",
     }),
-  image: z.string().nonempty().max(28),
+  image: z.string().nonempty().max(32),
 });
 
 type formProps = z.infer<typeof schema>;
@@ -33,7 +33,7 @@ export default function FormGetParty() {
   });
 
   async function handleForm(data: formProps) {
-    const POST = await Fetch<GetPartyPost>(`${process.env.GETPARTY}/parties`, {
+    await Fetch<GetPartyPost>("http://localhost:5000/parties", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export default function FormGetParty() {
           className={`w-full h-10 sm:h-10 rounded-md p-4 focus-visible:outline-none text-black`}
           placeholder="title"
           type="text"
-          maxLength={18}
+          maxLength={22}
         />
         {errors.title?.message && (
           <p className="text-xs text-red-600">{errors.title.message}</p>
@@ -66,6 +66,7 @@ export default function FormGetParty() {
           className={`w-full h-10 sm:h-10 rounded-md p-4 focus-visible:outline-none text-black`}
           placeholder="Author"
           type="text"
+          maxLength={18}
         />
         {errors.author?.message && (
           <p className="text-xs text-red-600">{errors.author.message}</p>
@@ -77,6 +78,7 @@ export default function FormGetParty() {
           className={`w-full h-10 sm:h-10 rounded-md p-4 focus-visible:outline-none text-black`}
           placeholder="Budget"
           type="number"
+          maxLength={7}
         />
         {errors.budget?.message && (
           <p className="text-xs text-red-600">{errors.budget.message}</p>
@@ -88,6 +90,7 @@ export default function FormGetParty() {
           className={`w-full h-10 sm:h-10 rounded-md p-4 focus-visible:outline-none text-black`}
           placeholder="ImageURL"
           type="text"
+          maxLength={32}
         />
         {errors.image?.message && (
           <p className="text-xs text-red-600">{errors.image.message}</p>
