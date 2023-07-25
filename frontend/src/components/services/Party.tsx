@@ -45,26 +45,26 @@ export default function Party({
             className={`flex gap-1 items-center text-2xl font-medium max-[400px]:text-lg max-md:text-xl`}
           >
             {title}
-            <PartyPopper className="max-[400px]:w-5 max-[400px]h-5 sm:h-6 sm:w-6" />
+            <PartyPopper className="max-sm:w-4 max-sm:h-4 sm:h-5 sm:w-5" />
           </span>
           <span
             className={`flex items-center gap-1 text-xl font-medium max-[400px]:text-base max-md:text-lg`}
           >
             {author}
-            <User className="max-[400px]:w-5 max-[400px]h-5 sm:h-6 sm:w-6" />
+            <User className="max-sm:w-4 max-sm:h-4 sm:h-5 sm:w-5" />
           </span>
           <span
             className={`flex gap-1 items-center text-lg font-medium max-[400px]:text-sm max-md:text-base`}
           >
             {budget}
-            <DollarSign className="max-[400px]:w-5 max-[400px]h-5 sm:h-6 sm:w-6" />
+            <DollarSign className="max-sm:w-4 max-sm:h-4 sm:h-5 sm:w-5" />
           </span>
         </div>
         <footer
           className={`flex items-center justify-center gap-1 font-light h-1/6 w-full`}
         >
           {_id}
-          <KeyRound className="w-4 h-4" />
+          <KeyRound className="max-sm:w-3 max-sm:h-3 sm:h-4 sm:w-4" />
         </footer>
       </div>
     </section>

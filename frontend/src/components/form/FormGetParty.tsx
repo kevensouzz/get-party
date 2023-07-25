@@ -5,6 +5,8 @@ import { z } from "zod";
 import { CheckCircle } from "lucide-react";
 import { Fetch } from "@/Fetch";
 import { GetPartyPost } from "@/type/GetPartyPost";
+import { useState } from "react";
+import SuccessModal from "../services/SuccessModal";
 
 const schema = z.object({
   title: z.string().nonempty().max(22),
@@ -23,6 +25,8 @@ const schema = z.object({
 type formProps = z.infer<typeof schema>;
 
 export default function FormGetParty() {
+  const [successModal, setSuccessModal] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -33,13 +37,19 @@ export default function FormGetParty() {
   });
 
   async function handleForm(data: formProps) {
-    await Fetch<GetPartyPost>("http://localhost:5000/parties", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    try {
+      Fetch<GetPartyPost>("http://localhost:5000/parties", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      setSuccessModal(!successModal);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -103,6 +113,12 @@ export default function FormGetParty() {
         Submit
         <CheckCircle className="w-5 h-5" />
       </button>
+      {successModal && (
+        <SuccessModal
+          onClose={() => setSuccessModal(!successModal)}
+          message="Party was created successfully!"
+        />
+      )}
     </form>
   );
 }
