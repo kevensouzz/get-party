@@ -5,30 +5,30 @@ export default function About() {
         className={`flex flex-col justify-evenly self-center text-justify font-light text-2xl px-20 space-y-4 h-5/6 w-2/3 max-lg:px-8 max-lg:text-lg max-md:px-4 max-md:w-5/6 max-sm:px-0 max-sm:text-base max-[375px]:text-sm max-[320px]:text-xs`}
       >
         <p>
-          Sistema desenvolvido a fim de aprimorar minhas habilidades e obter
-          conhecimento sobre construção de APIs com Node, conexão ao banco de
-          dados Mongo e consumo de APIs no front-end com React usando a FetchAPI
-          do próprio JavaScript.
+          System developed in order to improve my skills and obtain knowledge
+          about building APIs with Node, database connection Mongo data and
+          front-end consumption APIs with React using FetchAPI of JavaScript
+          itself.
         </p>
         <p>
           <span className={`font-medium underline`}>
-            Tecnologias usadas no desenvolivmento desse sistema
+            Technologies used in the development of this system
           </span>
           <br />
-          para a construção da API foi usado o{" "}
+          For the API building was used the{" "}
           <span className={`underline decoration-red-600`}>
             NodeJS
-          </span> com{" "}
+          </span> with{" "}
           <span className={`underline decoration-red-600`}>ExpressJS</span>.
           <br />
-          No front-end foi usado{" "}
+          In the front end was used{" "}
           <span className={`underline decoration-red-600`}>
             ReactJS
-          </span> com{" "}
+          </span> with{" "}
           <span className={`underline decoration-red-600`}>NextJS</span>. <br />
-          E para conectar a API com o{" "}
-          <span className={`underline decoration-red-600`}>MongoDB</span> foi
-          usado o{" "}
+          and to connect the API with the{" "}
+          <span className={`underline decoration-red-600`}>MongoDB</span> was
+          used the{" "}
           <span className={`underline decoration-red-600`}>Mongoose</span>.
         </p>
       </section>

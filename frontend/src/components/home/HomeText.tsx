@@ -9,7 +9,7 @@ export default function HomeText(prop: HomeTextProps) {
       {prop.firstText}
       <span>
         <Link href={prop.link} className={`text-red-600 pr-2 hover:underline`}>
-          Clique aqui
+          Click here
         </Link>
         {prop.secondText}
       </span>

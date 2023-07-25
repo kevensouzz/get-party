@@ -15,14 +15,14 @@ export default function Home() {
         className={`h-full w-1/2 flex flex-col max-sm:h-1/2 max-sm:w-full`}
       >
         <HomeText
-          firstText="Serviços de festa de altíssima qualidade!"
+          firstText="High quality party services!"
           link="/services"
-          secondText="e confira agora nossos serviços!"
+          secondText="and check out our services now!"
         />
         <HomeText
-          firstText="Mais de 10 anos atuando no mercado!"
+          firstText="More than 10 years acting in the market!"
           link="/about"
-          secondText="e saiba mais sobre nós!"
+          secondText="and learn more about us!"
         />
       </section>
     </main>
