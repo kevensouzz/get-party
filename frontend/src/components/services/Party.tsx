@@ -1,3 +1,4 @@
+"use client";
 import {
   DollarSign,
   Edit,
@@ -7,6 +8,8 @@ import {
   User,
 } from "lucide-react";
 import { PartyApiTypeProps } from "@/type/PartyApiTypeProps";
+import { useState } from "react";
+import DeletesModal from "./modal/DeletesModal";
 
 export default function Party({
   title,
@@ -15,6 +18,8 @@ export default function Party({
   image,
   _id,
 }: PartyApiTypeProps) {
+  const [deletesModal, setDeletesModal] = useState(false);
+
   return (
     <section
       className={`
@@ -35,7 +40,10 @@ export default function Party({
         <header
           className={`w-full h-1/6 flex items-center justify-between px-4`}
         >
-          <Trash2 className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150" />
+          <Trash2
+            onClick={() => setDeletesModal(!deletesModal)}
+            className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150"
+          />
           <Edit className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150" />
         </header>
         <div
@@ -67,6 +75,14 @@ export default function Party({
           <KeyRound className="max-sm:w-3 max-sm:h-3 sm:h-4 sm:w-4" />
         </footer>
       </div>
+
+      {deletesModal && (
+        <DeletesModal
+          onClose={() => setDeletesModal(!DeletesModal)}
+          party={title}
+          id={_id}
+        />
+      )}
     </section>
   );
 }
