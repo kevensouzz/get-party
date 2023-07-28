@@ -10,6 +10,7 @@ import {
 import { PartyApiTypeProps } from "@/type/PartyApiTypeProps";
 import { useState } from "react";
 import DeletesModal from "./modal/DeletesModal";
+import SuccessModal from "./modal/SuccessModal";
 
 export default function Party({
   title,
@@ -19,6 +20,7 @@ export default function Party({
   _id,
 }: PartyApiTypeProps) {
   const [deletesModal, setDeletesModal] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
 
   return (
     <section
@@ -41,7 +43,7 @@ export default function Party({
           className={`w-full h-1/6 flex items-center justify-between px-4`}
         >
           <Trash2
-            onClick={() => setDeletesModal(!deletesModal)}
+            onClick={() => setDeletesModal(true)}
             className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150"
           />
           <Edit className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150" />
@@ -69,7 +71,7 @@ export default function Party({
           </span>
         </div>
         <footer
-          className={`flex items-center justify-center gap-1 font-light h-1/6 w-full`}
+          className={`flex items-center justify-center gap-1 font-light h-1/6 w-full select-text`}
         >
           {_id}
           <KeyRound className="max-sm:w-3 max-sm:h-3 sm:h-4 sm:w-4" />
@@ -78,9 +80,17 @@ export default function Party({
 
       {deletesModal && (
         <DeletesModal
-          onClose={() => setDeletesModal(!DeletesModal)}
-          party={title}
+          onCloseDeletesModal={() => setDeletesModal(false)}
+          showSuccessModal={() => setSuccessModal(true)}
+          title={title}
           id={_id}
+        />
+      )}
+
+      {successModal && (
+        <SuccessModal
+          message={`"${title}" WAS DELETED SUCCESSFULLY!`}
+          onCloseSuccessModal={() => setSuccessModal(false)}
         />
       )}
     </section>

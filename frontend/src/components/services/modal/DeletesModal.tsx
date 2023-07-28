@@ -1,11 +1,23 @@
 import { Fetch } from "@/Fetch";
 import { GetPartyDelete } from "@/type/GetPartyDelete";
 
-export default function DeletesModal({ onClose, party, id }: GetPartyDelete) {
+export default function DeletesModal({
+  onCloseDeletesModal,
+  showSuccessModal,
+  title,
+  id,
+}: GetPartyDelete) {
   function deleteParty() {
     Fetch<GetPartyDelete>(`http://localhost:5000/parties/${id}`, {
       method: "DELETE",
-    });
+    })
+      .then(() => {
+        onCloseDeletesModal();
+        showSuccessModal();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -17,9 +29,9 @@ export default function DeletesModal({ onClose, party, id }: GetPartyDelete) {
         max-sm:w-[375px] max-[400px]:w-[275px]`}
       >
         <span
-          className={`w-full h-1/2 flex items-center justify-center max-[400px]:text-xs px-4 text-center`}
+          className={`w-full h-1/2 flex items-center justify-center text-center max-[400px]:text-xs px-4`}
         >
-          <p>Do you want to delete the "{party}" party?</p>
+          <p>DO YOU WANT TO DELETE THE "{title}"?</p>
         </span>
         <span className={`w-full h-1/2 flex items-center justify-around`}>
           <div
@@ -32,7 +44,7 @@ export default function DeletesModal({ onClose, party, id }: GetPartyDelete) {
           <div
             className={`cursor-pointer flex items-center justify-center border rounded-xl h-1/2 w-1/3
             sm:hover:text-black sm:hover:bg-white transition-all ease-linear duration-150`}
-            onClick={onClose}
+            onClick={onCloseDeletesModal}
           >
             No!
           </div>

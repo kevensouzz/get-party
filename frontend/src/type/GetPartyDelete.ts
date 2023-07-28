@@ -1,5 +1,6 @@
 export type GetPartyDelete = {
-  onClose: () => void;
-  party: string;
+  onCloseDeletesModal: () => void;
+  showSuccessModal: () => void;
+  title: string;
   id: string;
 };
