@@ -44,10 +44,14 @@ export default function FormGetParty() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    });
-
-    setSuccessModal(!successModal);
-    reset();
+    })
+      .then(() => {
+        setSuccessModal(!successModal);
+        reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -113,8 +117,8 @@ export default function FormGetParty() {
       </button>
       {successModal && (
         <SuccessModal
-          onClose={() => setSuccessModal(!successModal)}
-          message="Party was created successfully!"
+          onCloseSuccessModal={() => setSuccessModal(!successModal)}
+          message="PARTY WAS CREATED SUCCESSFULLY!"
         />
       )}
     </form>

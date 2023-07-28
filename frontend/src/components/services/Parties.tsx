@@ -1,9 +1,9 @@
-import { GetPartyDataType } from "@/type/GetPartyDataType";
+import { GetPartyGet } from "@/type/GetPartyGet";
 import Party from "./Party";
 import { Fetch } from "@/Fetch";
 
 export default async function Parties() {
-  const GetPartyData = await Fetch<GetPartyDataType>(
+  const GetPartyData = await Fetch<GetPartyGet>(
     "http://localhost:5000/parties",
     {
       method: "GET",

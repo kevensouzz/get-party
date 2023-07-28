@@ -1,4 +1,4 @@
-export type GetPartyDataType = [
+export type GetPartyGet = [
   {
     title: string;
     author: string;
