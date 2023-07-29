@@ -1,4 +1,4 @@
-import FormGetParty from "../form/FormGetParty";
+import FormGetPartyPost from "../form/FormGetPartyPost";
 import Box from "./Box";
 
 export default function WelcomeServices() {
@@ -8,7 +8,7 @@ export default function WelcomeServices() {
         <Box />
       </div>
       <div className="w-1/2 h-full flex items-center justify-center max-sm:w-full max-sm:h-[60%]">
-        <FormGetParty />
+        <FormGetPartyPost />
       </div>
     </section>
   );

@@ -4,9 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle } from "lucide-react";
 import { Fetch } from "@/Fetch";
-import { GetPartyPost } from "@/type/GetPartyPost";
 import { useState } from "react";
 import SuccessModal from "../services/modal/SuccessModal";
+import { GetPartyPost } from "@/type/GetParty-PostPut";
 
 const schema = z.object({
   title: z.string().nonempty().max(22),
@@ -24,7 +24,7 @@ const schema = z.object({
 
 type formProps = z.infer<typeof schema>;
 
-export default function FormGetParty() {
+export default function FormGetPartyPost() {
   const [successModal, setSuccessModal] = useState(false);
 
   const {
@@ -110,7 +110,7 @@ export default function FormGetParty() {
       </span>
       <button
         type="submit"
-        className={`w-full h-10 sm:h-10 bg-black rounded-md flex justify-center items-center font-medium text-lg hover:text-red-600 transition-all ease-linear gap-1`}
+        className={`w-full h-10 sm:h-10 bg-black rounded-md flex justify-center items-center font-medium text-lg sm:hover:text-red-600 transition-all ease-linear gap-1 outline-none focus:text-red-600`}
       >
         Submit
         <CheckCircle className="w-5 h-5" />

@@ -34,20 +34,22 @@ export default function DeletesModal({
           <p>DO YOU WANT TO DELETE THE "{title}"?</p>
         </span>
         <span className={`w-full h-1/2 flex items-center justify-around`}>
-          <div
+          <button
             className={`cursor-pointer flex items-center justify-center border rounded-xl h-1/2 w-1/3
-            sm:hover:text-black sm:hover:bg-white transition-all ease-linear duration-150`}
+            sm:hover:text-black sm:hover:bg-white transition-all ease-linear duration-150 outline-none
+            focus:text-black focus:bg-white`}
             onClick={deleteParty}
           >
-            Yes!
-          </div>
-          <div
+            Yes
+          </button>
+          <button
             className={`cursor-pointer flex items-center justify-center border rounded-xl h-1/2 w-1/3
-            sm:hover:text-black sm:hover:bg-white transition-all ease-linear duration-150`}
+            sm:hover:text-black sm:hover:bg-white transition-all ease-linear duration-150 outline-none
+            focus:text-black focus:bg-white`}
             onClick={onCloseDeletesModal}
           >
-            No!
-          </div>
+            No
+          </button>
         </span>
       </div>
     </section>

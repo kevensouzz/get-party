@@ -11,6 +11,7 @@ import { PartyApiTypeProps } from "@/type/PartyApiTypeProps";
 import { useState } from "react";
 import DeletesModal from "./modal/DeletesModal";
 import SuccessModal from "./modal/SuccessModal";
+import UpdatesModal from "./modal/UpdatesModal";
 
 export default function Party({
   title,
@@ -20,6 +21,7 @@ export default function Party({
   _id,
 }: PartyApiTypeProps) {
   const [deletesModal, setDeletesModal] = useState(false);
+  const [updateModal, setUpdatesModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
 
   return (
@@ -46,7 +48,10 @@ export default function Party({
             onClick={() => setDeletesModal(true)}
             className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150"
           />
-          <Edit className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150" />
+          <Edit
+            onClick={() => setUpdatesModal(true)}
+            className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150"
+          />
         </header>
         <div
           className={`w-full h-4/6 flex flex-col items-center justify-evenly py-12 select-text`}
@@ -85,6 +90,10 @@ export default function Party({
           title={title}
           id={_id}
         />
+      )}
+
+      {updateModal && (
+        <UpdatesModal onCloseUpdatesModal={() => setUpdatesModal(false)} id={_id} />
       )}
 
       {successModal && (
