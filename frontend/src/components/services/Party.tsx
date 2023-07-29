@@ -22,7 +22,8 @@ export default function Party({
 }: PartyApiTypeProps) {
   const [deletesModal, setDeletesModal] = useState(false);
   const [updateModal, setUpdatesModal] = useState(false);
-  const [successModal, setSuccessModal] = useState(false);
+  const [successDeleteModal, setSuccessDeleteModal] = useState(false);
+  const [successUpdateModal, setSuccessUpdateModal] = useState(false);
 
   return (
     <section
@@ -44,14 +45,20 @@ export default function Party({
         <header
           className={`w-full h-1/6 flex items-center justify-between px-4`}
         >
-          <Trash2
+          <button
             onClick={() => setDeletesModal(true)}
-            className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150"
-          />
-          <Edit
+            className={`cursor-pointer max-[400px]:mt-1 flex items-center justify-center
+            sm:hover:text-black transition-all ease-linear`}
+          >
+            <Trash2 />
+          </button>
+          <button
             onClick={() => setUpdatesModal(true)}
-            className="cursor-pointer sm:hover:text-black transition-all ease-linear duration-150"
-          />
+            className={`cursor-pointer max-[400px]:mt-1 flex items-center justify-center
+            sm:hover:text-black transition-all ease-linear`}
+          >
+            <Edit />
+          </button>
         </header>
         <div
           className={`w-full h-4/6 flex flex-col items-center justify-evenly py-12 select-text`}
@@ -85,21 +92,32 @@ export default function Party({
 
       {deletesModal && (
         <DeletesModal
-          onCloseDeletesModal={() => setDeletesModal(false)}
-          showSuccessModal={() => setSuccessModal(true)}
-          title={title}
           id={_id}
+          title={title}
+          onCloseDeletesModal={() => setDeletesModal(false)}
+          showSuccessModal={() => setSuccessDeleteModal(true)}
         />
       )}
 
       {updateModal && (
-        <UpdatesModal onCloseUpdatesModal={() => setUpdatesModal(false)} id={_id} />
+        <UpdatesModal
+          id={_id}
+          onCloseUpdatesModal={() => setUpdatesModal(false)}
+          showSuccessModal={() => setSuccessUpdateModal(true)}
+        />
       )}
 
-      {successModal && (
+      {successDeleteModal && (
         <SuccessModal
           message={`"${title}" WAS DELETED SUCCESSFULLY!`}
-          onCloseSuccessModal={() => setSuccessModal(false)}
+          onCloseSuccessModal={() => setSuccessDeleteModal(false)}
+        />
+      )}
+
+      {successUpdateModal && (
+        <SuccessModal
+          message={`PARTY WAS UPDATED SUCCESSFULLY!`}
+          onCloseSuccessModal={() => setSuccessUpdateModal(false)}
         />
       )}
     </section>

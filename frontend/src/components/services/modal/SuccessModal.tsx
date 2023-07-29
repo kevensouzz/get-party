@@ -16,11 +16,12 @@ export default function SuccessModal({
         <header
           className={`flex items-center justify-end pr-4 h-2/5 w-full max-[400px]:h-1/5 max-[400px]:items-start`}
         >
-          <X
-            className={`cursor-pointer max-[400px]:mt-1`}
-            size={28}
+          <button
             onClick={onCloseSuccessModal}
-          />
+            className={`cursor-pointer max-[400px]:mt-1 flex items-center justify-center`}
+          >
+            <X size={28} />
+          </button>
         </header>
         <span
           className={`w-full h-3/5 flex items-start justify-center text-center font-medium text-lg

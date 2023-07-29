@@ -4,8 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Fetch } from "@/Fetch";
 import { GetPartyPut } from "@/type/GetParty-PostPut";
-import { useState } from "react";
-import SuccessModal from "../services/modal/SuccessModal";
 import { PenLine } from "lucide-react";
 
 const schema = z.object({
@@ -24,14 +22,19 @@ const schema = z.object({
 
 type formProps = z.infer<typeof schema>;
 
-export default function FormGetPartyPut({ id }: { id: string }) {
-  const [successModal, setSuccessModal] = useState(false);
-
+export default function FormGetPartyPut({
+  id,
+  onClosePutModal,
+  showSuccessModal,
+}: {
+  id: string;
+  onClosePutModal: () => void;
+  showSuccessModal: () => void;
+}) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<formProps>({
     mode: "all",
     resolver: zodResolver(schema),
@@ -46,8 +49,8 @@ export default function FormGetPartyPut({ id }: { id: string }) {
       body: JSON.stringify(data),
     })
       .then(() => {
-        reset();
-        setSuccessModal(!successModal);
+        onClosePutModal();
+        showSuccessModal();
       })
       .catch((error) => {
         console.log(error);
@@ -114,13 +117,6 @@ export default function FormGetPartyPut({ id }: { id: string }) {
         Confirm
         <PenLine className="w-5 h-5" />
       </button>
-
-      {successModal && (
-        <SuccessModal
-          onCloseSuccessModal={() => setSuccessModal(!successModal)}
-          message="PARTY WAS UPDATED SUCCESSFULLY!"
-        />
-      )}
     </form>
   );
 }
