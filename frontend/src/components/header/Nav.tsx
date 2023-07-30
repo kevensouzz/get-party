@@ -6,9 +6,6 @@ import NavLink from "./NavLink";
 
 export default function Nav() {
   const [menu, setMenu] = useState(false);
-  const setEnable = () => {
-    setMenu(!menu);
-  };
 
   return (
     <nav
@@ -25,7 +22,7 @@ export default function Nav() {
 
       <span
         className={`sm:hidden w-min h-min flex items-center justify-end cursor-pointer`}
-        onClick={setEnable}
+        onClick={() => setMenu(true)}
       >
         {menu ? <NavModal /> : <AlignJustify />}
       </span>
