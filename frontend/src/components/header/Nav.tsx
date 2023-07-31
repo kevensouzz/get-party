@@ -22,7 +22,7 @@ export default function Nav() {
 
       <span
         className={`sm:hidden w-min h-min flex items-center justify-end cursor-pointer`}
-        onClick={() => setMenu(true)}
+        onClick={() => setMenu(!menu)}
       >
         {menu ? <NavModal /> : <AlignJustify />}
       </span>
