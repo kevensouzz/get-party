@@ -20,12 +20,14 @@ export default function Nav() {
         <NavLink children={"Contact"} href={"/contact"} />
       </span>
 
-      <span
+      <button
         className={`sm:hidden w-min h-min flex items-center justify-end cursor-pointer`}
         onClick={() => setMenu(!menu)}
       >
-        {menu ? <NavModal /> : <AlignJustify />}
-      </span>
+        <AlignJustify />
+      </button>
+
+      {menu && <NavModal onClose={() => setMenu(!menu)} />}
     </nav>
   );
 }

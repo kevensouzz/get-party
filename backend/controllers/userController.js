@@ -6,13 +6,15 @@ const getToken = require("../helpers/get-token");
 module.exports = class userController {
   static async register(req, res) {
     try {
-      const { name, email, password, comfirmPass } = req.body;
+      const { name, email, password, confirmpassword } = req.body;
 
       if (!name || !email || !password) {
-        res.status(422).json({ error: "there are required fields no filled in!" });
+        res
+          .status(422)
+          .json({ error: "there are required fields no filled in!" });
         return;
       }
-      if (password != comfirmPass) {
+      if (password != confirmpassword) {
         res
           .status(422)
           .json({ error: "password confirmation must be same as password!" });
@@ -22,11 +24,9 @@ module.exports = class userController {
       const users = await User.findOne({ email: email });
 
       if (users) {
-        return res
-          .status(422)
-          .json({
-            error: "there is already a has user registred with this email!",
-          });
+        return res.status(422).json({
+          error: "there is already a has user registred with this email!",
+        });
       }
 
       const salt = await bcrypt.genSalt(12);
@@ -40,7 +40,7 @@ module.exports = class userController {
       const response = await User.create(user);
       await createUserToken(req, res, response);
 
-      // res.status(201).json({ response, success" })
+      res.status(201).json({ response });
     } catch (error) {
       res.status(500).json(error);
     }
