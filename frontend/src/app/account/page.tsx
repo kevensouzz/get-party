@@ -1,6 +1,7 @@
 "use client";
-import { LogIn, ScanFace } from "lucide-react";
-import { signIn, useSession } from "next-auth/react";
+import SignInButton from "@/components/account/SignInButton";
+import { ScanFace } from "lucide-react";
+import { useSession } from "next-auth/react";
 
 export default function Auth() {
   const { data: session } = useSession();
@@ -19,17 +20,13 @@ export default function Auth() {
           </h1>
 
           <div className="w-full h-1/2 mt-20 flex flex-col items-center justify-around">
-            <button
-              onClick={() => signIn("google")}
-              className="border border-red-600 text-red-600 text-2xl flex items-center justify-center gap-1 font-medium w-full h-1/3 rounded-2xl transition-all ease-linear outline-none sm:hover:bg-black focus:bg-black"
-            >
-              Google
-              <LogIn />
-            </button>
-            <button className="border border-red-600 text-red-600 text-2xl flex items-center justify-center gap-1 font-medium w-full h-1/3 rounded-2xl transition-all ease-linear outline-none sm:hover:bg-black focus:bg-black">
+            <SignInButton provider="google">
+              Goolge
+            </SignInButton>
+
+            <SignInButton provider="github">
               Github
-              <LogIn />
-            </button>
+            </SignInButton>
           </div>
         </section>
       </main>
