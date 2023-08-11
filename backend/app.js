@@ -14,7 +14,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // db connection
-const conn = require("./db/conn");
+const conn = require("./conn");
 
 // routes
 const routes = require("./routes/router");

@@ -2,23 +2,23 @@ const router = require("express").Router()
 const partyController = require("../controllers/partyController")
 
 router
-  .route("/parties")
+  .route("/")
   .post((req, res) => partyController.create(req, res))
 
 router
-  .route("/parties")
+  .route("/")
   .get((req, res) => partyController.getAll(req, res))
 
 router
-  .route("/parties/:id")
+  .route("/:id")
   .get((req, res) => partyController.get(req, res))
 
 router
-  .route("/parties/:id")
+  .route("/:id")
   .delete((req, res) => partyController.delete(req, res))
 
 router
-  .route("/parties/:id")
+  .route("/:id")
   .put((req, res) => partyController.update(req, res))
 
 module.exports = router
