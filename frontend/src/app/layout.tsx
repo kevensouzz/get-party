@@ -1,5 +1,6 @@
 import "./globals.css";
 import Header from "@/components/header/Header";
+import Provider from "./provider";
 
 export const metadata = {
   title: "Get Party",
@@ -14,8 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`flex flex-col bg-neutral-900 select-none text-white`}>
-        <Header />
-        {children}
+        <Provider>
+          <Header />
+          {children}
+        </Provider>
       </body>
     </html>
   );
