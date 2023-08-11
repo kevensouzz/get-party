@@ -9,7 +9,7 @@ export default function Nav() {
 
   return (
     <nav
-      className={`flex items-center justify-between h-full w-1/4 text-xl max-xl:w-1/3 max-lg:w-1/2 max-md:text-base max-sm:w-min`}
+      className={`flex items-center justify-between h-full text-xl w-1/2 max-lg:w-[60%] max-md:text-base max-sm:w-min`}
     >
       <span
         className={`flex items-center justify-between w-full max-sm:hidden`}
@@ -18,6 +18,7 @@ export default function Nav() {
         <NavLink children={"Services"} href={"/services"} />
         <NavLink children={"About"} href={"/about"} />
         <NavLink children={"Contact"} href={"/contact"} />
+        <NavLink children={"Account"} href={"/account"} />
       </span>
 
       <button

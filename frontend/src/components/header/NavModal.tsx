@@ -18,6 +18,7 @@ export default function NavModal({ onClose }: { onClose: () => void }) {
         <NavLink href={"/services"} children={"Services"} />
         <NavLink href={"/about"} children={"About"} />
         <NavLink href={"/contact"} children={"Contact"} />
+        <NavLink href={"/account"} children={"Account"} />
       </main>
     </section>
   );
