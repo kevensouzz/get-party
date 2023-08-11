@@ -1,10 +1,13 @@
-/node_modules
-/.pnp
+node_modules
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+.pnp
 .pnp.js
-/coverage
-/.next/
-/out/
-/build
+coverage
+.next/
+out/
+build
 .DS_Store
 *.pem
 npm-debug.log*
@@ -15,6 +18,3 @@ yarn-error.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
-yarn.lock
-package-lock.json
-pnpm-lock.yaml
