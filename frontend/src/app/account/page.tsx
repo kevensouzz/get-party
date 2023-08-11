@@ -36,9 +36,9 @@ export default function Auth() {
     );
   }
 
-return (
-  <main className={`w-full h-[88vh] flex items-center justify-center`}>
-    logadasso
-  </main>
-)
+  return (
+    <main className={`w-full h-[88vh] flex items-center justify-center`}>
+      logadasso
+    </main>
+  );
 }

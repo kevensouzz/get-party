@@ -1,11 +1,11 @@
-"use client";
 import Parties from "@/components/services/Parties";
 import WelcomeServices from "@/components/services/WelcomeServices";
-import { useSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-export default function Services() {
-  const { data: session } = useSession();
+export default async function Services() {
+  const session = await getServerSession(authOptions);
 
   if (!session) {
     redirect("/account");
