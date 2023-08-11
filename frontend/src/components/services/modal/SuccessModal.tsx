@@ -24,7 +24,7 @@ export default function SuccessModal({
           </button>
         </header>
         <span
-          className={`w-full h-3/5 flex items-start justify-center text-center font-medium text-lg
+          className={`w-full h-3/5 flex items-start justify-center text-center font-medium text-lg px-2
         max-sm:text-sm max-[400px]:text-xs max-[400px]:items-center max-[400px]:h-4/5`}
         >
           {message}

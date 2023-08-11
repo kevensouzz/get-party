@@ -8,7 +8,7 @@ export default function DeletesModal({
   id,
 }: GetPartyDelete) {
   function deleteParty() {
-    Fetch<GetPartyDelete>(`http://localhost:5000/parties/${id}`, {
+    Fetch<GetPartyDelete>(`http://localhost:5000/${id}`, {
       method: "DELETE",
     })
       .then(() => {

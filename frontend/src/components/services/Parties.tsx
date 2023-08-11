@@ -4,7 +4,7 @@ import { Fetch } from "@/Fetch";
 
 export default async function Parties() {
   const GetPartyData = await Fetch<GetPartyGet>(
-    "http://localhost:5000/parties",
+    "http://localhost:5000",
     {
       method: "GET",
     }

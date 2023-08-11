@@ -38,7 +38,7 @@ export default function FormGetPartyPost() {
   });
 
   function handleForm(data: formProps) {
-    Fetch<GetPartyPost>("http://localhost:5000/parties", {
+    Fetch<GetPartyPost>("http://localhost:5000", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -41,7 +41,7 @@ export default function FormGetPartyPut({
   });
 
   function handleForm(data: formProps) {
-    Fetch<GetPartyPut>(`http://localhost:5000/parties/${id}`, {
+    Fetch<GetPartyPut>(`http://localhost:5000/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
