@@ -1,5 +1,6 @@
 import { GithubDataType } from "@/type/GithubDataType";
-import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
+// import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
+const { FolderGit, Github, Linkedin, MapPin } = require("lucide-react");
 import Link from "next/link";
 import { Fetch } from "@/Fetch";
 

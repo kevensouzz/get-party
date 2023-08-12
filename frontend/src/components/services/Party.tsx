@@ -1,12 +1,20 @@
 "use client";
-import {
+// import {
+//   DollarSign,
+//   Edit,
+//   KeyRound,
+//   PartyPopper,
+//   Trash2,
+//   User,
+// } from "lucide-react";
+const {
   DollarSign,
   Edit,
   KeyRound,
   PartyPopper,
   Trash2,
   User,
-} from "lucide-react";
+} = require("lucide-react");
 import { PartyApiTypeProps } from "@/type/PartyApiTypeProps";
 import { useState } from "react";
 import DeletesModal from "./modal/DeletesModal";

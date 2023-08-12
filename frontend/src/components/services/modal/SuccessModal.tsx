@@ -1,5 +1,6 @@
 import { SuccessModalProps } from "@/type/SuccessModalProps";
-import { X } from "lucide-react";
+// import { X } from "lucide-react";
+const { X } = require("lucide-react");
 
 export default function SuccessModal({
   onCloseSuccessModal,

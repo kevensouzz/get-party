@@ -23,6 +23,6 @@ app.use("/", routes);
 conn()
   .then(() => {
     app.listen(5000);
-    console.log("SERVER IS RUNNING!");
+    console.log("SERVER IS ON!");
   })
   .catch((err) => console.log(err));

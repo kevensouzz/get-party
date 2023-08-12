@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
 import NavModal from "./NavModal";
-import { AlignJustify } from "lucide-react";
+// import { AlignJustify } from "lucide-react";
+const { AlignJustify } = require("lucide-react");
 import NavLink from "./NavLink";
 
 export default function Nav() {

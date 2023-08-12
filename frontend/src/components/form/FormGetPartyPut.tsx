@@ -4,7 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Fetch } from "@/Fetch";
 import { GetPartyPut } from "@/type/GetParty-PostPut";
-import { PenLine } from "lucide-react";
+// import { PenLine } from "lucide-react";
+const { PenLine } = require("lucide-react");
 
 const schema = z.object({
   title: z.string().nonempty().max(22),

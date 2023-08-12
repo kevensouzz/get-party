@@ -1,6 +1,7 @@
 "use client";
 import SignInButton from "@/components/account/SignInButton";
-import { LogOut, ScanFace } from "lucide-react";
+// import { LogOut, ScanFace } from "lucide-react";
+const { LogOut, ScanFace } = require("lucide-react");
 import { signOut, useSession } from "next-auth/react";
 
 export default function Auth() {

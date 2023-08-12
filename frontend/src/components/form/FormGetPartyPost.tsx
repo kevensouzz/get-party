@@ -2,7 +2,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle } from "lucide-react";
+// import { CheckCircle } from "lucide-react";
+const { CheckCircle } = require("lucide-react");
 import { Fetch } from "@/Fetch";
 import { useState } from "react";
 import SuccessModal from "../services/modal/SuccessModal";

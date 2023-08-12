@@ -1,4 +1,5 @@
-import { LogIn } from "lucide-react";
+// import { LogIn } from "lucide-react";
+const { LogIn } = require("lucide-react");
 import { signIn } from "next-auth/react";
 
 export default function SignInButton({

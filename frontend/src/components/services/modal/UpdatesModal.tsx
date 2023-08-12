@@ -1,5 +1,6 @@
 import FormGetPartyPut from "@/components/form/FormGetPartyPut";
-import { PenLine, X } from "lucide-react";
+// import { PenLine, X } from "lucide-react";
+const { PenLine, X } = require("lucide-react");
 
 export type UpdatesModalProps = {
   id: string;

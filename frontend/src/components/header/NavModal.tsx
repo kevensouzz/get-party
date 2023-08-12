@@ -1,4 +1,5 @@
-import { X } from "lucide-react";
+// import { X } from "lucide-react";
+const { X } = require ("lucide-react");
 import NavLink from "./NavLink";
 
 export default function NavModal({ onClose }: { onClose: () => void }) {
