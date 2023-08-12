@@ -14,13 +14,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // db connection
-const conn = require("./conn");
+const db = require("./db");
 
 // routes
 const routes = require("./routes/router");
 app.use("/", routes);
 
-conn()
+db()
   .then(() => {
     app.listen(5000);
     console.log("SERVER IS ON!");
