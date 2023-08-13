@@ -3,6 +3,15 @@ const Party = require("../models/party");
 const partyController = {
   create: async (req, res) => {
     try {
+      const partyCount = await Party.countDocuments();
+      if (partyCount >= 10) {
+        return res
+          .status(400)
+          .json({
+            error: "Maximum limit (10) reached. Cannot create more parties.",
+          });
+      }
+
       const party = {
         title: req.body.title,
         author: req.body.author,
