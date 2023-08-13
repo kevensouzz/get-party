@@ -2,17 +2,15 @@ import FormGetPartyPut from "@/components/form/FormGetPartyPut";
 // import { PenLine, X } from "lucide-react";
 const { PenLine, X } = require("lucide-react");
 
-export type UpdatesModalProps = {
-  id: string;
-  onCloseUpdatesModal: () => void;
-  showSuccessModal: () => void;
-};
-
 export default function UpdatesModal({
   id,
   onCloseUpdatesModal,
   showSuccessModal,
-}: UpdatesModalProps) {
+}: {
+    id: string;
+    onCloseUpdatesModal: () => void;
+    showSuccessModal: () => void;
+}) {
 
   return (
     <section

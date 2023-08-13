@@ -1,11 +1,11 @@
 // import { X } from "lucide-react";
 const { X } = require("lucide-react");
 
-export default function SuccessModal({
-  onCloseSuccessModal,
+export default function ErrorModal({
+  onCloseErrorModal,
   message,
 }: {
-  onCloseSuccessModal: () => void;
+  onCloseErrorModal: () => void;
   message: string;
 }) {
   return (
@@ -20,7 +20,7 @@ export default function SuccessModal({
           className={`flex items-center justify-end pr-4 h-2/5 w-full max-[400px]:h-1/5 max-[400px]:items-start`}
         >
           <button
-            onClick={onCloseSuccessModal}
+            onClick={onCloseErrorModal}
             className={`cursor-pointer max-[400px]:mt-1 flex items-center justify-center`}
           >
             <X size={28} />

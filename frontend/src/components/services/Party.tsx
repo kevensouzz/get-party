@@ -15,7 +15,6 @@ const {
   Trash2,
   User,
 } = require("lucide-react");
-import { PartyApiTypeProps } from "@/type/PartyApiTypeProps";
 import { useState } from "react";
 import DeletesModal from "./modal/DeletesModal";
 import SuccessModal from "./modal/SuccessModal";
@@ -27,7 +26,13 @@ export default function Party({
   budget,
   image,
   _id,
-}: PartyApiTypeProps) {
+}: {
+  title: string;
+  author: string;
+  budget: number;
+  image: string;
+  _id: string;
+}) {
   const [deletesModal, setDeletesModal] = useState(false);
   const [updateModal, setUpdatesModal] = useState(false);
   const [successDeleteModal, setSuccessDeleteModal] = useState(false);

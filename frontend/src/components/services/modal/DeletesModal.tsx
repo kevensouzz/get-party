@@ -1,14 +1,16 @@
-import { Fetch } from "@/Fetch";
-import { GetPartyDelete } from "@/type/GetPartyDelete";
-
 export default function DeletesModal({
   onCloseDeletesModal,
   showSuccessModal,
   title,
   id,
-}: GetPartyDelete) {
+}: {
+    onCloseDeletesModal: () => void;
+    showSuccessModal: () => void;
+    title: string;
+    id: string;
+}) {
   function deleteParty() {
-    Fetch<GetPartyDelete>(`http://localhost:5000/${id}`, {
+    fetch(`http://localhost:5000/${id}`, {
       method: "DELETE",
     })
       .then(() => {

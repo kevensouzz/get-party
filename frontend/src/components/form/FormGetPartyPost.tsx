@@ -4,10 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 // import { CheckCircle } from "lucide-react";
 const { CheckCircle } = require("lucide-react");
-import { Fetch } from "@/Fetch";
 import { useState } from "react";
 import SuccessModal from "../services/modal/SuccessModal";
-import { GetPartyPost } from "@/type/GetParty-PostPut";
 
 const schema = z.object({
   title: z.string().nonempty().max(22),
@@ -39,7 +37,7 @@ export default function FormGetPartyPost() {
   });
 
   function handleForm(data: formProps) {
-    Fetch<GetPartyPost>("http://localhost:5000", {
+    fetch("http://localhost:5000", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

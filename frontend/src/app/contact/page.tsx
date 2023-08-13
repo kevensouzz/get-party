@@ -1,11 +1,17 @@
-import { GithubDataType } from "@/type/GithubDataType";
 // import { FolderGit, Github, Linkedin, MapPin } from "lucide-react";
 const { FolderGit, Github, Linkedin, MapPin } = require("lucide-react");
 import Link from "next/link";
 import { Fetch } from "@/Fetch";
 
+type GithubDataProps = {
+  avatar_url: string;
+  name: string;
+  location: string;
+  login: string;
+};
+
 export default async function Contact() {
-  const GithubData = await Fetch<GithubDataType>(
+  const GithubData = await Fetch<GithubDataProps>(
     "https://api.github.com/users/kevensouzz",
     {
       method: "GET",

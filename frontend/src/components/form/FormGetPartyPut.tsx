@@ -2,8 +2,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Fetch } from "@/Fetch";
-import { GetPartyPut } from "@/type/GetParty-PostPut";
 // import { PenLine } from "lucide-react";
 const { PenLine } = require("lucide-react");
 
@@ -42,7 +40,7 @@ export default function FormGetPartyPut({
   });
 
   function handleForm(data: formProps) {
-    Fetch<GetPartyPut>(`http://localhost:5000/${id}`, {
+    fetch(`http://localhost:5000/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

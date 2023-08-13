@@ -1,14 +1,20 @@
-import { GetPartyGet } from "@/type/GetPartyGet";
 import Party from "./Party";
 import { Fetch } from "@/Fetch";
 
+export type GetPartyGet = [
+  {
+    title: string;
+    author: string;
+    budget: number;
+    image: string;
+    _id: string;
+  }
+];
+
 export default async function Parties() {
-  const GetPartyData = await Fetch<GetPartyGet>(
-    "http://localhost:5000",
-    {
-      method: "GET",
-    }
-  );
+  const GetPartyData = await Fetch<GetPartyGet>("http://localhost:5000", {
+    method: "GET",
+  });
 
   return (
     GetPartyData.length > 0 && (
