@@ -6,6 +6,18 @@ import { z } from "zod";
 const { CheckCircle } = require("lucide-react");
 import { useState } from "react";
 import SuccessModal from "../services/modal/SuccessModal";
+import ErrorModal from "../services/modal/ErrorModal";
+import { Fetch } from "@/Fetch";
+
+type GetPartyGet = [
+  {
+    title: string;
+    author: string;
+    budget: number;
+    image: string;
+    _id: string;
+  }
+];
 
 const schema = z.object({
   title: z.string().nonempty().max(22),
@@ -25,6 +37,7 @@ type formProps = z.infer<typeof schema>;
 
 export default function FormGetPartyPost() {
   const [successModal, setSuccessModal] = useState(false);
+  const [errorModal, setErrorModal] = useState(false);
 
   const {
     register,
@@ -37,20 +50,49 @@ export default function FormGetPartyPost() {
   });
 
   function handleForm(data: formProps) {
-    fetch("http://localhost:5000", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+    Fetch<GetPartyGet>("http://localhost:5000", {
+      method: "GET",
     })
-      .then(() => {
-        setSuccessModal(!successModal);
-        reset();
+      .then((res) => res.length)
+      .then((count) => {
+        if (count >= 10) {
+          reset();
+          setErrorModal(!errorModal);
+        } else {
+          fetch("http://localhost:5000", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then(() => {
+              setSuccessModal(!successModal);
+              reset();
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
       })
       .catch((error) => {
         console.log(error);
       });
+
+    // fetch("http://localhost:5000", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then(() => {
+    //     setSuccessModal(!successModal);
+    //     reset();
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }
 
   return (
@@ -118,6 +160,13 @@ export default function FormGetPartyPost() {
         <SuccessModal
           onCloseSuccessModal={() => setSuccessModal(!successModal)}
           message="PARTY WAS CREATED SUCCESSFULLY!"
+        />
+      )}
+
+      {errorModal && (
+        <ErrorModal
+          onCloseErrorModal={() => setErrorModal(!errorModal)}
+          message="Maximum limit (10) reached. Cannot create more parties."
         />
       )}
     </form>

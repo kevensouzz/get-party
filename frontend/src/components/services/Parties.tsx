@@ -1,7 +1,7 @@
 import Party from "./Party";
 import { Fetch } from "@/Fetch";
 
-export type GetPartyGet = [
+type GetPartyGet = [
   {
     title: string;
     author: string;
