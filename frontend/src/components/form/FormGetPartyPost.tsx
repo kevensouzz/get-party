@@ -65,34 +65,15 @@ export default function FormGetPartyPost() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-          })
-            .then(() => {
-              setSuccessModal(!successModal);
-              reset();
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+          }).then(() => {
+            reset();
+            setSuccessModal(!successModal);
+          });
         }
       })
       .catch((error) => {
         console.log(error);
       });
-
-    // fetch("http://localhost:5000", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then(() => {
-    //     setSuccessModal(!successModal);
-    //     reset();
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   }
 
   return (
