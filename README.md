@@ -4,7 +4,7 @@
 
 Este é um projeto pessoal desenvolvido a fim de aprender principalmente sobre construção de APIs com NodeJS e ser uma porta de entrada para o desenvolvimento back-end.
 
-## Tecnologias utilizadas
+## Technologies used
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -76,8 +76,8 @@ Este é um projeto pessoal desenvolvido a fim de aprender principalmente sobre c
 
 ### Run
 
-- /backend > `yarn app`
-- /frontend > `yarn dev`
+- /backend > `yarn app` or `npm run app`
+- /frontend > `yarn dev` or `npm run dev`
 
 ---
 
