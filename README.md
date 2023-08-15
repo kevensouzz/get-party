@@ -76,3 +76,9 @@ Este é um projeto pessoal desenvolvido a fim de aprender principalmente sobre c
 
 - /backend > `yarn app`
 - /frontend > `yarn dev`
+
+---
+
+<p align="center" >
+  XD
+</p>
