@@ -47,8 +47,8 @@ Este é um projeto pessoal desenvolvido a fim de aprender principalmente sobre c
     - Authorization callback URL: `http://localhost:3000/api/auth/callback/github`
     - Save the `Client Id` and the `CLient Secret Key`
 
-### Clone the Repository `https://github.com/kevensouzz/get-party.git`
 ### Setup
+Clone the Repository `https://github.com/kevensouzz/get-party.git`
 - Environment Variables
   - `cd ./backend` > `yarn` or `npm install` | `npm i` to install backend dependencies
     - create a `.env` file into backend root
