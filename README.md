@@ -2,7 +2,7 @@
 
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
 
-Este é um projeto pessoal desenvolvido a fim de aprender principalmente sobre construção de APIs com NodeJs e ser um porta de entrada para o desenvolvimento back-end.
+Este é um projeto pessoal desenvolvido a fim de aprender principalmente sobre construção de APIs com NodeJS e ser uma porta de entrada para o desenvolvimento back-end.
 
 ## Tecnologias utilizadas
 
@@ -39,7 +39,7 @@ Este é um projeto pessoal desenvolvido a fim de aprender principalmente sobre c
       - Save the `Client Id` and the `CLient Secret Key`
   - Get Github credentials...
     - Into Github, click on the Picture Profile and go Settings
-    - Developer Settings > OAuth Apps > New OAuth Apps
+    - Developer Settings > [OAuth Apps](https://github.com/settings/developers) > New OAuth Apps
     - Application name: `Get-Party`
     - Homepage URL: `http://localhost:3000`
     - Authorization callback URL: `http://localhost:3000/api/auth/callback/github`
