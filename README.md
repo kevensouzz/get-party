@@ -2,7 +2,7 @@
 
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
 
-Este é um projeto pessoal desenvolvido a fim de aprender principalmente sobre construção de APIs com NodeJS e ser uma porta de entrada para o desenvolvimento back-end.
+This is a personal project, developed to learn about APIs buildment with NodeJS and introduce me to back-end development.
 
 ## Technologies used
 
